@@ -17,6 +17,7 @@
 		F4BA1889249DDC1100D42258 /* DVTInstrumentsUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1885249DDC1100D42258 /* DVTInstrumentsUtilities.framework */; };
 		F4BA188C249DDF2200D42258 /* Instruments.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA188B249DDF2200D42258 /* Instruments.m */; };
 		F4BA1891249DE0AC00D42258 /* TraceUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA1890249DE0AC00D42258 /* TraceUtility.m */; };
+		F4BA1896249DE21F00D42258 /* ParserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA1895249DE21F00D42258 /* ParserFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +50,9 @@
 		F4BA188F249DE0AC00D42258 /* TraceUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TraceUtility.h; sourceTree = "<group>"; };
 		F4BA1890249DE0AC00D42258 /* TraceUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TraceUtility.m; sourceTree = "<group>"; };
 		F4BA1892249DE0EA00D42258 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
+		F4BA1894249DE21F00D42258 /* ParserFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParserFactory.h; sourceTree = "<group>"; };
+		F4BA1895249DE21F00D42258 /* ParserFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParserFactory.m; sourceTree = "<group>"; };
+		F4BA1897249DE23200D42258 /* ParserProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParserProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 				F4BA1873249DDAE100D42258 /* Trace2JSON.entitlements */,
 				F4BA188E249DE09600D42258 /* TraceUtility */,
 				F4BA185C249DD97B00D42258 /* Helpers */,
+				F4BA1893249DE21300D42258 /* Parsers */,
 				F4BA1855249DD7AF00D42258 /* main.m */,
 				F4BA1892249DE0EA00D42258 /* PrefixHeader.h */,
 			);
@@ -129,6 +134,16 @@
 				F4BA1890249DE0AC00D42258 /* TraceUtility.m */,
 			);
 			path = TraceUtility;
+			sourceTree = "<group>";
+		};
+		F4BA1893249DE21300D42258 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				F4BA1897249DE23200D42258 /* ParserProtocol.h */,
+				F4BA1894249DE21F00D42258 /* ParserFactory.h */,
+				F4BA1895249DE21F00D42258 /* ParserFactory.m */,
+			);
+			path = Parsers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +207,7 @@
 				F4BA188C249DDF2200D42258 /* Instruments.m in Sources */,
 				F4BA185F249DD98900D42258 /* ShellCommand.m in Sources */,
 				F4BA1856249DD7AF00D42258 /* main.m in Sources */,
+				F4BA1896249DE21F00D42258 /* ParserFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

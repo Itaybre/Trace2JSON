@@ -34,7 +34,7 @@ int main(int argc, const char * argv[]) {
         
         NSArray<NSString *> *arguments = NSProcessInfo.processInfo.arguments;
         if (arguments.count < 2) {
-            NSLog(@"Usage: %@ [%@]\n", arguments.firstObject.lastPathComponent, @"trace document");
+            Print(@"Usage: %@ [%@]\n", arguments.firstObject.lastPathComponent, @"trace document");
             return 1;
         }
         

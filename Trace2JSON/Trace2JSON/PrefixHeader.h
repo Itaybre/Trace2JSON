@@ -11,6 +11,7 @@
 
 #import <objc/runtime.h>
 
+#define Print(format, ...) CFShow((__bridge CFStringRef)[NSString stringWithFormat:format, ## __VA_ARGS__])
 #define IvarCast(object, name, type) (*(type *)(void *)&((char *)(__bridge void *)object)[ivar_getOffset(class_getInstanceVariable(object_getClass(object), #name))])
 #define Ivar(object, name) IvarCast(object, name, id const)
 
