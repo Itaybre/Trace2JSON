@@ -15,6 +15,7 @@
 		F4BA1887249DDC1100D42258 /* DVTFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1883249DDC1100D42258 /* DVTFoundation.framework */; };
 		F4BA1888249DDC1100D42258 /* InstrumentsPlugIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1884249DDC1100D42258 /* InstrumentsPlugIn.framework */; };
 		F4BA1889249DDC1100D42258 /* DVTInstrumentsUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1885249DDC1100D42258 /* DVTInstrumentsUtilities.framework */; };
+		F4BA188C249DDF2200D42258 /* Instruments.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA188B249DDF2200D42258 /* Instruments.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +42,9 @@
 		F4BA1883249DDC1100D42258 /* DVTFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTFoundation.framework; path = ../../../../Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework; sourceTree = "<group>"; };
 		F4BA1884249DDC1100D42258 /* InstrumentsPlugIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InstrumentsPlugIn.framework; path = ../../../../Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks/InstrumentsPlugIn.framework; sourceTree = "<group>"; };
 		F4BA1885249DDC1100D42258 /* DVTInstrumentsUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTInstrumentsUtilities.framework; path = ../../../../Applications/Xcode.app/Contents/SharedFrameworks/DVTInstrumentsUtilities.framework; sourceTree = "<group>"; };
+		F4BA188A249DDF2200D42258 /* Instruments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Instruments.h; sourceTree = "<group>"; };
+		F4BA188B249DDF2200D42258 /* Instruments.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Instruments.m; sourceTree = "<group>"; };
+		F4BA188D249DDF5F00D42258 /* InstrumentsPrivateHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstrumentsPrivateHeaders.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,9 @@
 		F4BA185C249DD97B00D42258 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F4BA188D249DDF5F00D42258 /* InstrumentsPrivateHeaders.h */,
+				F4BA188A249DDF2200D42258 /* Instruments.h */,
+				F4BA188B249DDF2200D42258 /* Instruments.m */,
 				F4BA185D249DD98900D42258 /* ShellCommand.h */,
 				F4BA185E249DD98900D42258 /* ShellCommand.m */,
 			);
@@ -166,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4BA188C249DDF2200D42258 /* Instruments.m in Sources */,
 				F4BA185F249DD98900D42258 /* ShellCommand.m in Sources */,
 				F4BA1856249DD7AF00D42258 /* main.m in Sources */,
 			);

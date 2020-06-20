@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
 #import "ShellCommand.h"
+#import "Instruments.h"
 
 // Workaround to fix search paths for Instruments plugins and packages.
 static NSBundle *(*NSBundle_mainBundle_original)(id self, SEL _cmd);
@@ -28,8 +29,9 @@ static void __attribute__((constructor)) hook() {
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        [Instruments loadPlugins];
+        
+        [Instruments unloadPlugins];
     }
     return 0;
 }
