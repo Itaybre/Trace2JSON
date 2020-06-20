@@ -16,6 +16,7 @@
 		F4BA1888249DDC1100D42258 /* InstrumentsPlugIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1884249DDC1100D42258 /* InstrumentsPlugIn.framework */; };
 		F4BA1889249DDC1100D42258 /* DVTInstrumentsUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1885249DDC1100D42258 /* DVTInstrumentsUtilities.framework */; };
 		F4BA188C249DDF2200D42258 /* Instruments.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA188B249DDF2200D42258 /* Instruments.m */; };
+		F4BA1891249DE0AC00D42258 /* TraceUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA1890249DE0AC00D42258 /* TraceUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +46,9 @@
 		F4BA188A249DDF2200D42258 /* Instruments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Instruments.h; sourceTree = "<group>"; };
 		F4BA188B249DDF2200D42258 /* Instruments.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Instruments.m; sourceTree = "<group>"; };
 		F4BA188D249DDF5F00D42258 /* InstrumentsPrivateHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstrumentsPrivateHeaders.h; sourceTree = "<group>"; };
+		F4BA188F249DE0AC00D42258 /* TraceUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TraceUtility.h; sourceTree = "<group>"; };
+		F4BA1890249DE0AC00D42258 /* TraceUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TraceUtility.m; sourceTree = "<group>"; };
+		F4BA1892249DE0EA00D42258 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +89,10 @@
 			isa = PBXGroup;
 			children = (
 				F4BA1873249DDAE100D42258 /* Trace2JSON.entitlements */,
+				F4BA188E249DE09600D42258 /* TraceUtility */,
 				F4BA185C249DD97B00D42258 /* Helpers */,
 				F4BA1855249DD7AF00D42258 /* main.m */,
+				F4BA1892249DE0EA00D42258 /* PrefixHeader.h */,
 			);
 			path = Trace2JSON;
 			sourceTree = "<group>";
@@ -114,6 +120,15 @@
 				F4BA1883249DDC1100D42258 /* DVTFoundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4BA188E249DE09600D42258 /* TraceUtility */ = {
+			isa = PBXGroup;
+			children = (
+				F4BA188F249DE0AC00D42258 /* TraceUtility.h */,
+				F4BA1890249DE0AC00D42258 /* TraceUtility.m */,
+			);
+			path = TraceUtility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4BA1891249DE0AC00D42258 /* TraceUtility.m in Sources */,
 				F4BA188C249DDF2200D42258 /* Instruments.m in Sources */,
 				F4BA185F249DD98900D42258 /* ShellCommand.m in Sources */,
 				F4BA1856249DD7AF00D42258 /* main.m in Sources */,
@@ -299,6 +315,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PY9WJ3M9MW;
 				ENABLE_HARDENED_RUNTIME = NO;
+				GCC_PREFIX_HEADER = Trace2JSON/PrefixHeader.h;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/Applications/Xcode.app/Contents/SharedFrameworks,
 					/Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks,
@@ -323,6 +340,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PY9WJ3M9MW;
 				ENABLE_HARDENED_RUNTIME = NO;
+				GCC_PREFIX_HEADER = Trace2JSON/PrefixHeader.h;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/Applications/Xcode.app/Contents/SharedFrameworks,
 					/Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks,
