@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		F4BA1856249DD7AF00D42258 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA1855249DD7AF00D42258 /* main.m */; };
+		F4BA185F249DD98900D42258 /* ShellCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA185E249DD98900D42258 /* ShellCommand.m */; };
+		F4BA187F249DDC0200D42258 /* InstrumentsAnalysisCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA187E249DDC0200D42258 /* InstrumentsAnalysisCore.framework */; };
+		F4BA1881249DDC0800D42258 /* InstrumentsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1880249DDC0800D42258 /* InstrumentsKit.framework */; };
+		F4BA1886249DDC1100D42258 /* DVTInstrumentsFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1882249DDC1100D42258 /* DVTInstrumentsFoundation.framework */; };
+		F4BA1887249DDC1100D42258 /* DVTFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1883249DDC1100D42258 /* DVTFoundation.framework */; };
+		F4BA1888249DDC1100D42258 /* InstrumentsPlugIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1884249DDC1100D42258 /* InstrumentsPlugIn.framework */; };
+		F4BA1889249DDC1100D42258 /* DVTInstrumentsUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1885249DDC1100D42258 /* DVTInstrumentsUtilities.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +32,15 @@
 /* Begin PBXFileReference section */
 		F4BA1852249DD7AF00D42258 /* Trace2JSON */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Trace2JSON; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4BA1855249DD7AF00D42258 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F4BA185D249DD98900D42258 /* ShellCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShellCommand.h; sourceTree = "<group>"; };
+		F4BA185E249DD98900D42258 /* ShellCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShellCommand.m; sourceTree = "<group>"; };
+		F4BA1873249DDAE100D42258 /* Trace2JSON.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Trace2JSON.entitlements; sourceTree = "<group>"; };
+		F4BA187E249DDC0200D42258 /* InstrumentsAnalysisCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InstrumentsAnalysisCore.framework; path = ../../../../Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks/InstrumentsAnalysisCore.framework; sourceTree = "<group>"; };
+		F4BA1880249DDC0800D42258 /* InstrumentsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InstrumentsKit.framework; path = ../../../../Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks/InstrumentsKit.framework; sourceTree = "<group>"; };
+		F4BA1882249DDC1100D42258 /* DVTInstrumentsFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTInstrumentsFoundation.framework; path = ../../../../Applications/Xcode.app/Contents/SharedFrameworks/DVTInstrumentsFoundation.framework; sourceTree = "<group>"; };
+		F4BA1883249DDC1100D42258 /* DVTFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTFoundation.framework; path = ../../../../Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework; sourceTree = "<group>"; };
+		F4BA1884249DDC1100D42258 /* InstrumentsPlugIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InstrumentsPlugIn.framework; path = ../../../../Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks/InstrumentsPlugIn.framework; sourceTree = "<group>"; };
+		F4BA1885249DDC1100D42258 /* DVTInstrumentsUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTInstrumentsUtilities.framework; path = ../../../../Applications/Xcode.app/Contents/SharedFrameworks/DVTInstrumentsUtilities.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +48,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4BA1887249DDC1100D42258 /* DVTFoundation.framework in Frameworks */,
+				F4BA1881249DDC0800D42258 /* InstrumentsKit.framework in Frameworks */,
+				F4BA187F249DDC0200D42258 /* InstrumentsAnalysisCore.framework in Frameworks */,
+				F4BA1886249DDC1100D42258 /* DVTInstrumentsFoundation.framework in Frameworks */,
+				F4BA1888249DDC1100D42258 /* InstrumentsPlugIn.framework in Frameworks */,
+				F4BA1889249DDC1100D42258 /* DVTInstrumentsUtilities.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +65,7 @@
 			children = (
 				F4BA1854249DD7AF00D42258 /* Trace2JSON */,
 				F4BA1853249DD7AF00D42258 /* Products */,
+				F4BA1860249DDA6800D42258 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +80,33 @@
 		F4BA1854249DD7AF00D42258 /* Trace2JSON */ = {
 			isa = PBXGroup;
 			children = (
+				F4BA1873249DDAE100D42258 /* Trace2JSON.entitlements */,
+				F4BA185C249DD97B00D42258 /* Helpers */,
 				F4BA1855249DD7AF00D42258 /* main.m */,
 			);
 			path = Trace2JSON;
+			sourceTree = "<group>";
+		};
+		F4BA185C249DD97B00D42258 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F4BA185D249DD98900D42258 /* ShellCommand.h */,
+				F4BA185E249DD98900D42258 /* ShellCommand.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F4BA1860249DDA6800D42258 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4BA187E249DDC0200D42258 /* InstrumentsAnalysisCore.framework */,
+				F4BA1880249DDC0800D42258 /* InstrumentsKit.framework */,
+				F4BA1884249DDC1100D42258 /* InstrumentsPlugIn.framework */,
+				F4BA1885249DDC1100D42258 /* DVTInstrumentsUtilities.framework */,
+				F4BA1882249DDC1100D42258 /* DVTInstrumentsFoundation.framework */,
+				F4BA1883249DDC1100D42258 /* DVTFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4BA185F249DD98900D42258 /* ShellCommand.m in Sources */,
 				F4BA1856249DD7AF00D42258 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,20 +286,48 @@
 		F4BA185A249DD7AF00D42258 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Trace2JSON/Trace2JSON.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PY9WJ3M9MW;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/SharedFrameworks,
+					/Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.itaysoft.trace2json;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/SharedFrameworks,
+					/Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks,
+				);
+				SYSTEM_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		F4BA185B249DD7AF00D42258 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Trace2JSON/Trace2JSON.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PY9WJ3M9MW;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/SharedFrameworks,
+					/Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.itaysoft.trace2json;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/SharedFrameworks,
+					/Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks,
+				);
+				SYSTEM_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
