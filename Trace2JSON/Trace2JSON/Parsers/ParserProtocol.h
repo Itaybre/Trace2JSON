@@ -15,8 +15,7 @@
 
 @protocol ParserProtocol <NSObject>
 
-- (NSString *) instrumentName;
-- (NSDictionary *) parseContext:(NSArray<XRContext *> *) contexts withRun:(XRRun *)run;
+- (id) parseContext:(NSArray<XRContext *> *) contexts withRun:(XRRun *)run;
 
 @end
 

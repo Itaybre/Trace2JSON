@@ -11,11 +11,7 @@
 
 @implementation LeaksParser
 
-- (NSString *) instrumentName {
-    return @"Leaks";
-}
-
-- (NSDictionary *) parseContext:(NSArray<XRContext *> *) contexts withRun:(XRRun *)run {
+- (id) parseContext:(NSArray<XRContext *> *) contexts withRun:(XRRun *)run {
     NSMutableArray *result = [NSMutableArray new];
     
     XRLeaksRun *leaksRun = (XRLeaksRun *)run;
@@ -37,11 +33,7 @@
         [result addObject:parsedLeak];
     }
     
-    NSDictionary *returnDictionary = @{
-        @"type": [self instrumentName],
-        @"result": result
-    };
-    return returnDictionary;
+    return result;
 }
 
 @end
