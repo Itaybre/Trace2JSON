@@ -18,6 +18,9 @@
 		F4BA188C249DDF2200D42258 /* Instruments.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA188B249DDF2200D42258 /* Instruments.m */; };
 		F4BA1891249DE0AC00D42258 /* TraceUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA1890249DE0AC00D42258 /* TraceUtility.m */; };
 		F4BA1896249DE21F00D42258 /* ParserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA1895249DE21F00D42258 /* ParserFactory.m */; };
+		F4BA189A249DE4C600D42258 /* LeaksParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA1899249DE4C600D42258 /* LeaksParser.m */; };
+		F4BA189E249EF52300D42258 /* XRDevice+NSDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA189D249EF52300D42258 /* XRDevice+NSDictionary.m */; };
+		F4BA18A1249EF6C800D42258 /* PFTProcess+NSDicionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA18A0249EF6C800D42258 /* PFTProcess+NSDicionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +56,12 @@
 		F4BA1894249DE21F00D42258 /* ParserFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParserFactory.h; sourceTree = "<group>"; };
 		F4BA1895249DE21F00D42258 /* ParserFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParserFactory.m; sourceTree = "<group>"; };
 		F4BA1897249DE23200D42258 /* ParserProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParserProtocol.h; sourceTree = "<group>"; };
+		F4BA1898249DE4C600D42258 /* LeaksParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeaksParser.h; sourceTree = "<group>"; };
+		F4BA1899249DE4C600D42258 /* LeaksParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeaksParser.m; sourceTree = "<group>"; };
+		F4BA189C249EF52300D42258 /* XRDevice+NSDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XRDevice+NSDictionary.h"; sourceTree = "<group>"; };
+		F4BA189D249EF52300D42258 /* XRDevice+NSDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XRDevice+NSDictionary.m"; sourceTree = "<group>"; };
+		F4BA189F249EF6C800D42258 /* PFTProcess+NSDicionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PFTProcess+NSDicionary.h"; sourceTree = "<group>"; };
+		F4BA18A0249EF6C800D42258 /* PFTProcess+NSDicionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "PFTProcess+NSDicionary.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +105,7 @@
 				F4BA188E249DE09600D42258 /* TraceUtility */,
 				F4BA185C249DD97B00D42258 /* Helpers */,
 				F4BA1893249DE21300D42258 /* Parsers */,
+				F4BA189B249EF4EC00D42258 /* Categories */,
 				F4BA1855249DD7AF00D42258 /* main.m */,
 				F4BA1892249DE0EA00D42258 /* PrefixHeader.h */,
 			);
@@ -142,8 +152,21 @@
 				F4BA1897249DE23200D42258 /* ParserProtocol.h */,
 				F4BA1894249DE21F00D42258 /* ParserFactory.h */,
 				F4BA1895249DE21F00D42258 /* ParserFactory.m */,
+				F4BA1898249DE4C600D42258 /* LeaksParser.h */,
+				F4BA1899249DE4C600D42258 /* LeaksParser.m */,
 			);
 			path = Parsers;
+			sourceTree = "<group>";
+		};
+		F4BA189B249EF4EC00D42258 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				F4BA189C249EF52300D42258 /* XRDevice+NSDictionary.h */,
+				F4BA189D249EF52300D42258 /* XRDevice+NSDictionary.m */,
+				F4BA189F249EF6C800D42258 /* PFTProcess+NSDicionary.h */,
+				F4BA18A0249EF6C800D42258 /* PFTProcess+NSDicionary.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,9 +227,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4BA1891249DE0AC00D42258 /* TraceUtility.m in Sources */,
+				F4BA189A249DE4C600D42258 /* LeaksParser.m in Sources */,
+				F4BA18A1249EF6C800D42258 /* PFTProcess+NSDicionary.m in Sources */,
 				F4BA188C249DDF2200D42258 /* Instruments.m in Sources */,
 				F4BA185F249DD98900D42258 /* ShellCommand.m in Sources */,
 				F4BA1856249DD7AF00D42258 /* main.m in Sources */,
+				F4BA189E249EF52300D42258 /* XRDevice+NSDictionary.m in Sources */,
 				F4BA1896249DE21F00D42258 /* ParserFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

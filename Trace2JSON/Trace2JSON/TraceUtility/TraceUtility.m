@@ -9,6 +9,8 @@
 #import "TraceUtility.h"
 #import "InstrumentsPrivateHeaders.h"
 #import "ParserFactory.h"
+#import "XRDevice+NSDictionary.h"
+#import "PFTProcess+NSDicionary.h"
 
 @interface TraceUtility ()
 @property (nonatomic, strong) PFTTraceDocument *document;
@@ -23,59 +25,35 @@
         Print(@"Error: %@", error);
         exit(1);
     }
-    Print(@"Trace: %@", path);
 }
 
 - (void) processDocument {
+    NSMutableDictionary *resultDictionary = [NSMutableDictionary new];
+    
     // This logic was based on Qusic's TraceUtility (https://github.com/Qusic/TraceUtility)
     XRDevice *device = self.document.targetDevice;
-    Print(@"Device: %@ (%@ %@ %@)", device.deviceDisplayName, device.productType, device.productVersion, device.buildVersion);
+    [resultDictionary setObject:[device dictionary] forKey:@"device"];
+
     PFTProcess *process = self.document.defaultProcess;
-    Print(@"Process: %@ (%@)", process.displayName, process.bundleIdentifier);
+    [resultDictionary setObject:[process dictionary] forKey:@"process"];
     
+    
+    NSMutableDictionary *instruments = [NSMutableDictionary new];
     XRTrace *trace = self.document.trace;
     for (XRInstrument *instrument in trace.allInstrumentsList.allInstruments) {
-        Print(@"\nInstrument: %@ (%@)", instrument.type.name, instrument.type.uuid);
-
-        // Each instrument can have multiple runs.
-        NSArray<XRRun *> *runs = instrument.allRuns;
-        if (runs.count == 0) {
-            Print(@"No data.");
-            continue;
-        }
-        for (XRRun *run in runs) {
-            Print(@"Run #%@: %@", @(run.runNumber), run.displayName);
-            instrument.currentRun = run;
-
-            // Common routine to obtain contexts for the instrument.
-            NSMutableArray<XRContext *> *contexts = [NSMutableArray array];
-            if (![instrument isKindOfClass:XRLegacyInstrument.class]) {
-                XRAnalysisCoreStandardController *standardController = [[XRAnalysisCoreStandardController alloc]initWithInstrument:instrument document:self.document];
-                instrument.viewController = standardController;
-                [standardController instrumentDidChangeSwitches];
-                [standardController instrumentChangedTableRequirements];
-                XRAnalysisCoreDetailViewController *detailController = Ivar(standardController, _detailController);
-                [detailController restoreViewState];
-                XRAnalysisCoreDetailNode *detailNode = Ivar(detailController, _firstNode);
-                while (detailNode) {
-                    [contexts addObject:[self createContext:detailNode container:detailController]];
-                    detailNode = detailNode.nextSibling;
-                }
-            }
-
-            NSString *instrumentID = instrument.type.uuid;
-            id<ParserProtocol> parser = [[ParserFactory new] parserForInstrument:instrumentID];
-            if (parser) {
-                [parser parseContext:contexts withRun:run];
-            } else {
-                Print(@"Data processor has not been implemented for this type of instrument.");
-            }
-        }
+        NSDictionary *instrumentResult = [self processInstrument:instrument];
         
-        if (![instrument isKindOfClass:XRLegacyInstrument.class]) {
-            [instrument.viewController instrumentWillBecomeInvalid];
-            instrument.viewController = nil;
+        if(instrumentResult) {
+            [instruments setObject:instrumentResult forKey:instrument.type.uuid];
         }
+    }
+    
+    [resultDictionary setObject:instruments forKey:@"instruments"];
+    
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:resultDictionary options:NSJSONWritingPrettyPrinted error:&error];
+    if(!error) {
+        Print(@"%@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
     }
     
     [self.document close];
@@ -96,6 +74,67 @@
                                             parentContext:parentContext];
 
     return context;
+}
+
+- (NSDictionary *) processInstrument: (XRInstrument *) instrument {
+    // Each instrument can have multiple runs.
+    NSArray<XRRun *> *runs = instrument.allRuns;
+    if (runs.count == 0) {
+        return nil;
+    }
+    
+    NSMutableDictionary *instrumentDictionary = [NSMutableDictionary new];
+    [instrumentDictionary setObject:instrument.type.uuid forKey:@"type"];
+    [instrumentDictionary setObject:@(runs.count) forKey:@"runsCount"];
+    
+    NSMutableArray *runsParsed = [NSMutableArray new];
+    for (XRRun *run in runs) {
+        instrument.currentRun = run;
+
+        // Common routine to obtain contexts for the instrument.
+        NSMutableArray<XRContext *> *contexts = [NSMutableArray array];
+        if (![instrument isKindOfClass:XRLegacyInstrument.class]) {
+            XRAnalysisCoreStandardController *standardController = [[XRAnalysisCoreStandardController alloc]initWithInstrument:instrument document:self.document];
+            instrument.viewController = standardController;
+            [standardController instrumentDidChangeSwitches];
+            [standardController instrumentChangedTableRequirements];
+            XRAnalysisCoreDetailViewController *detailController = Ivar(standardController, _detailController);
+            [detailController restoreViewState];
+            XRAnalysisCoreDetailNode *detailNode = Ivar(detailController, _firstNode);
+            while (detailNode) {
+                [contexts addObject:[self createContext:detailNode container:detailController]];
+                detailNode = detailNode.nextSibling;
+            }
+        }
+
+        NSString *instrumentID = instrument.type.uuid;
+        id<ParserProtocol> parser = [[ParserFactory new] parserForInstrument:instrumentID];
+        if (parser) {
+            NSDictionary *parserResult = @{
+                @"run": @(run.runNumber),
+                @"runName": run.displayName,
+                @"result": [parser parseContext:contexts withRun:run]
+            };
+            [runsParsed addObject:parserResult];
+        } else {
+            NSDictionary *parserResult = @{
+                @"run": @(run.runNumber),
+                @"runName": run.displayName,
+                @"result": @"unsupported instrument",
+                @"unsupported": @(YES)
+            };
+            [runsParsed addObject:parserResult];
+            Print(@"Data processor has not been implemented for the instrument: %@", instrument.type.uuid);
+        }
+    }
+    [instrumentDictionary setObject:runsParsed forKey:@"runs"];
+    
+    if (![instrument isKindOfClass:XRLegacyInstrument.class]) {
+        [instrument.viewController instrumentWillBecomeInvalid];
+        instrument.viewController = nil;
+    }
+    
+    return instrumentDictionary;
 }
 
 @end

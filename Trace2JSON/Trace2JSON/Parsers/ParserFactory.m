@@ -7,6 +7,7 @@
 //
 
 #import "ParserFactory.h"
+#import "LeaksParser.h"
 
 @interface ParserFactory ()
 @property (nonatomic, strong) NSDictionary<NSString *,NSObject<ParserProtocol> *> *parsers;
@@ -17,6 +18,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.parsers = @{
+            @"com.apple.xray.instrument-type.homeleaks": [LeaksParser new]
         };
     }
     return self;
