@@ -9,6 +9,7 @@
 #import "ParserFactory.h"
 #import "LeaksParser.h"
 #import "ActivityMonitorParser.h"
+#import "CoreAnimationParser.h"
 
 @interface ParserFactory ()
 @property (nonatomic, strong) NSDictionary<NSString *,NSObject<ParserProtocol> *> *parsers;
@@ -20,7 +21,8 @@
     if (self = [super init]) {
         self.parsers = @{
             @"com.apple.xray.instrument-type.homeleaks": [LeaksParser new],
-            @"com.apple.xray.instrument-type.activity": [ActivityMonitorParser new]
+            @"com.apple.xray.instrument-type.activity": [ActivityMonitorParser new],
+            @"com.apple.dt.coreanimation-fps": [CoreAnimationParser new]
         };
     }
     return self;
