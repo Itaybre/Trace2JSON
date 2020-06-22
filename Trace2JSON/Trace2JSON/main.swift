@@ -16,6 +16,9 @@ struct ParseTrace: ParsableCommand {
 //    @Option(name: .long, help: "Process PID to filter when available.")
 //    var pid: String?
     
+    @Flag(name: .long, help: "Enable JSON pretty print.")
+    var pretty: Bool
+    
     @Option(name: .shortAndLong, help: "Output path.")
     var output: String?
 
@@ -28,15 +31,14 @@ struct ParseTrace: ParsableCommand {
         let traceUtility = try TraceUtility(path: path)
         let trace = traceUtility.processDocument()
         
-        let jsonData = try! JSONEncoder().encode(trace)
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = pretty ? .prettyPrinted : .sortedKeys
+            
+        let jsonData = try! encoder.encode(trace)
         if let output = output {
-            do {
-                try jsonData.write(to: URL(fileURLWithPath: output))
-            } catch {
-                let stderr = FileHandle.standardError
-                let message = "Error saving file to \(output): \(error)"
-                stderr.write(message.data(using: .utf8)!)
-            }
+            try jsonData.write(to: URL(fileURLWithPath: output))
+        } else {
+            print(String(data: jsonData, encoding: .utf8)!)
         }
         
         Instruments.unloadPlugins()
