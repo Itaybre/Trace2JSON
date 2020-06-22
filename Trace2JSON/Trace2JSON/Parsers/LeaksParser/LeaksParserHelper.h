@@ -1,5 +1,5 @@
 //
-//  ShellCommand.h
+//  LeaksParser.h
 //  Trace2JSON
 //
 //  Created by Itay Brenner on 6/20/20.
@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "InstrumentsPrivateHeaders.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ShellCommand : NSObject
+@class LeakRow;
 
-+ (NSString *) runCommand:(NSString *)cmd arguments:(NSArray<NSString *> *) arguments;
+@interface LeaksParserHelper : NSObject
+
+- (NSArray <LeakRow *> *) getLeaksFromRun:(XRRun *)run;
 
 @end
 

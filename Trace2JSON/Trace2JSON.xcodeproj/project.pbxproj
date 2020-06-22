@@ -3,27 +3,42 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F4BA1856249DD7AF00D42258 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA1855249DD7AF00D42258 /* main.m */; };
-		F4BA185F249DD98900D42258 /* ShellCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA185E249DD98900D42258 /* ShellCommand.m */; };
+		F439B4FC24A0E8E1009CEE64 /* ActivityMonitorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B4FB24A0E8E1009CEE64 /* ActivityMonitorParser.swift */; };
+		F439B4FE24A0E915009CEE64 /* LeakRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B4FD24A0E915009CEE64 /* LeakRow.swift */; };
+		F439B50024A0E923009CEE64 /* LeakRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B4FF24A0E923009CEE64 /* LeakRun.swift */; };
+		F439B50224A0E95A009CEE64 /* InstrumentRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B50124A0E95A009CEE64 /* InstrumentRun.swift */; };
+		F439B50424A0E96E009CEE64 /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B50324A0E96E009CEE64 /* Instrument.swift */; };
+		F439B50624A0E980009CEE64 /* SelectedProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B50524A0E980009CEE64 /* SelectedProcess.swift */; };
+		F439B50824A0E993009CEE64 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B50724A0E993009CEE64 /* Device.swift */; };
+		F439B50A24A0FCC0009CEE64 /* RuntimeHacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B50924A0FCC0009CEE64 /* RuntimeHacks.swift */; };
+		F439B50C24A0FCD5009CEE64 /* ActivityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B50B24A0FCD5009CEE64 /* ActivityRow.swift */; };
+		F439B50E24A0FCEB009CEE64 /* ProcessActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B50D24A0FCEB009CEE64 /* ProcessActivity.swift */; };
+		F439B51024A0FD00009CEE64 /* ActivityRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B50F24A0FD00009CEE64 /* ActivityRun.swift */; };
+		F439B51224A0FE15009CEE64 /* CoreAnimationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B51124A0FE15009CEE64 /* CoreAnimationParser.swift */; };
+		F439B51424A1096B009CEE64 /* CoreAnimationRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B51324A1096B009CEE64 /* CoreAnimationRun.swift */; };
+		F439B51624A10993009CEE64 /* CoreAnimationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B51524A10993009CEE64 /* CoreAnimationRow.swift */; };
+		F439B51B24A10B70009CEE64 /* ConnectionsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B51A24A10B70009CEE64 /* ConnectionsParser.swift */; };
+		F439B51E24A11BB4009CEE64 /* ConnectionsRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B51D24A11BB4009CEE64 /* ConnectionsRun.swift */; };
+		F439B52024A11BC7009CEE64 /* ConnectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B51F24A11BC7009CEE64 /* ConnectionRow.swift */; };
+		F497F29F24A05E180002CEFD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497F29E24A05E180002CEFD /* main.swift */; };
+		F497F2A124A05EB90002CEFD /* TraceUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497F2A024A05EB90002CEFD /* TraceUtility.swift */; };
+		F497F2A324A05ED80002CEFD /* Instruments.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497F2A224A05ED80002CEFD /* Instruments.swift */; };
+		F497F2A524A05F6F0002CEFD /* ShellCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497F2A424A05F6F0002CEFD /* ShellCommand.swift */; };
+		F497F2A824A062950002CEFD /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = F497F2A724A062950002CEFD /* ArgumentParser */; };
+		F497F2AB24A0662A0002CEFD /* Trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497F2AA24A0662A0002CEFD /* Trace.swift */; };
+		F497F2AD24A073B00002CEFD /* ParserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497F2AC24A073B00002CEFD /* ParserFactory.swift */; };
+		F497F2AF24A079120002CEFD /* LeaksParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497F2AE24A079120002CEFD /* LeaksParser.swift */; };
 		F4BA187F249DDC0200D42258 /* InstrumentsAnalysisCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA187E249DDC0200D42258 /* InstrumentsAnalysisCore.framework */; };
 		F4BA1881249DDC0800D42258 /* InstrumentsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1880249DDC0800D42258 /* InstrumentsKit.framework */; };
 		F4BA1886249DDC1100D42258 /* DVTInstrumentsFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1882249DDC1100D42258 /* DVTInstrumentsFoundation.framework */; };
 		F4BA1887249DDC1100D42258 /* DVTFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1883249DDC1100D42258 /* DVTFoundation.framework */; };
 		F4BA1888249DDC1100D42258 /* InstrumentsPlugIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1884249DDC1100D42258 /* InstrumentsPlugIn.framework */; };
 		F4BA1889249DDC1100D42258 /* DVTInstrumentsUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1885249DDC1100D42258 /* DVTInstrumentsUtilities.framework */; };
-		F4BA188C249DDF2200D42258 /* Instruments.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA188B249DDF2200D42258 /* Instruments.m */; };
-		F4BA1891249DE0AC00D42258 /* TraceUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA1890249DE0AC00D42258 /* TraceUtility.m */; };
-		F4BA1896249DE21F00D42258 /* ParserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA1895249DE21F00D42258 /* ParserFactory.m */; };
-		F4BA189A249DE4C600D42258 /* LeaksParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA1899249DE4C600D42258 /* LeaksParser.m */; };
-		F4BA189E249EF52300D42258 /* XRDevice+NSDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA189D249EF52300D42258 /* XRDevice+NSDictionary.m */; };
-		F4BA18A1249EF6C800D42258 /* PFTProcess+NSDicionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA18A0249EF6C800D42258 /* PFTProcess+NSDicionary.m */; };
-		F4BA18A4249F033D00D42258 /* ActivityMonitorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA18A3249F033D00D42258 /* ActivityMonitorParser.m */; };
-		F4BA18A7249F08E900D42258 /* CoreAnimationParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA18A6249F08E900D42258 /* CoreAnimationParser.m */; };
-		F4BA18AA249F0AE600D42258 /* ConnectionsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA18A9249F0AE600D42258 /* ConnectionsParser.m */; };
+		F4BA189A249DE4C600D42258 /* LeaksParserHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA1899249DE4C600D42258 /* LeaksParserHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,10 +54,33 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F439B4F924A0E5CE009CEE64 /* LeaksHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeaksHeaders.h; sourceTree = "<group>"; };
+		F439B4FB24A0E8E1009CEE64 /* ActivityMonitorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMonitorParser.swift; sourceTree = "<group>"; };
+		F439B4FD24A0E915009CEE64 /* LeakRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeakRow.swift; sourceTree = "<group>"; };
+		F439B4FF24A0E923009CEE64 /* LeakRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeakRun.swift; sourceTree = "<group>"; };
+		F439B50124A0E95A009CEE64 /* InstrumentRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentRun.swift; sourceTree = "<group>"; };
+		F439B50324A0E96E009CEE64 /* Instrument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instrument.swift; sourceTree = "<group>"; };
+		F439B50524A0E980009CEE64 /* SelectedProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedProcess.swift; sourceTree = "<group>"; };
+		F439B50724A0E993009CEE64 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		F439B50924A0FCC0009CEE64 /* RuntimeHacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeHacks.swift; sourceTree = "<group>"; };
+		F439B50B24A0FCD5009CEE64 /* ActivityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRow.swift; sourceTree = "<group>"; };
+		F439B50D24A0FCEB009CEE64 /* ProcessActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessActivity.swift; sourceTree = "<group>"; };
+		F439B50F24A0FD00009CEE64 /* ActivityRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRun.swift; sourceTree = "<group>"; };
+		F439B51124A0FE15009CEE64 /* CoreAnimationParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAnimationParser.swift; sourceTree = "<group>"; };
+		F439B51324A1096B009CEE64 /* CoreAnimationRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAnimationRun.swift; sourceTree = "<group>"; };
+		F439B51524A10993009CEE64 /* CoreAnimationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAnimationRow.swift; sourceTree = "<group>"; };
+		F439B51A24A10B70009CEE64 /* ConnectionsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsParser.swift; sourceTree = "<group>"; };
+		F439B51D24A11BB4009CEE64 /* ConnectionsRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsRun.swift; sourceTree = "<group>"; };
+		F439B51F24A11BC7009CEE64 /* ConnectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionRow.swift; sourceTree = "<group>"; };
+		F497F29D24A05E170002CEFD /* Trace2JSON-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trace2JSON-Bridging-Header.h"; sourceTree = "<group>"; };
+		F497F29E24A05E180002CEFD /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		F497F2A024A05EB90002CEFD /* TraceUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceUtility.swift; sourceTree = "<group>"; };
+		F497F2A224A05ED80002CEFD /* Instruments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruments.swift; sourceTree = "<group>"; };
+		F497F2A424A05F6F0002CEFD /* ShellCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellCommand.swift; sourceTree = "<group>"; };
+		F497F2AA24A0662A0002CEFD /* Trace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trace.swift; sourceTree = "<group>"; };
+		F497F2AC24A073B00002CEFD /* ParserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserFactory.swift; sourceTree = "<group>"; };
+		F497F2AE24A079120002CEFD /* LeaksParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaksParser.swift; sourceTree = "<group>"; };
 		F4BA1852249DD7AF00D42258 /* Trace2JSON */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Trace2JSON; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4BA1855249DD7AF00D42258 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F4BA185D249DD98900D42258 /* ShellCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShellCommand.h; sourceTree = "<group>"; };
-		F4BA185E249DD98900D42258 /* ShellCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShellCommand.m; sourceTree = "<group>"; };
 		F4BA1873249DDAE100D42258 /* Trace2JSON.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Trace2JSON.entitlements; sourceTree = "<group>"; };
 		F4BA187E249DDC0200D42258 /* InstrumentsAnalysisCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InstrumentsAnalysisCore.framework; path = ../../../../Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks/InstrumentsAnalysisCore.framework; sourceTree = "<group>"; };
 		F4BA1880249DDC0800D42258 /* InstrumentsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InstrumentsKit.framework; path = ../../../../Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks/InstrumentsKit.framework; sourceTree = "<group>"; };
@@ -50,27 +88,10 @@
 		F4BA1883249DDC1100D42258 /* DVTFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTFoundation.framework; path = ../../../../Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework; sourceTree = "<group>"; };
 		F4BA1884249DDC1100D42258 /* InstrumentsPlugIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InstrumentsPlugIn.framework; path = ../../../../Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks/InstrumentsPlugIn.framework; sourceTree = "<group>"; };
 		F4BA1885249DDC1100D42258 /* DVTInstrumentsUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTInstrumentsUtilities.framework; path = ../../../../Applications/Xcode.app/Contents/SharedFrameworks/DVTInstrumentsUtilities.framework; sourceTree = "<group>"; };
-		F4BA188A249DDF2200D42258 /* Instruments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Instruments.h; sourceTree = "<group>"; };
-		F4BA188B249DDF2200D42258 /* Instruments.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Instruments.m; sourceTree = "<group>"; };
 		F4BA188D249DDF5F00D42258 /* InstrumentsPrivateHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstrumentsPrivateHeaders.h; sourceTree = "<group>"; };
-		F4BA188F249DE0AC00D42258 /* TraceUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TraceUtility.h; sourceTree = "<group>"; };
-		F4BA1890249DE0AC00D42258 /* TraceUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TraceUtility.m; sourceTree = "<group>"; };
-		F4BA1892249DE0EA00D42258 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
-		F4BA1894249DE21F00D42258 /* ParserFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParserFactory.h; sourceTree = "<group>"; };
-		F4BA1895249DE21F00D42258 /* ParserFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParserFactory.m; sourceTree = "<group>"; };
 		F4BA1897249DE23200D42258 /* ParserProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParserProtocol.h; sourceTree = "<group>"; };
-		F4BA1898249DE4C600D42258 /* LeaksParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeaksParser.h; sourceTree = "<group>"; };
-		F4BA1899249DE4C600D42258 /* LeaksParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeaksParser.m; sourceTree = "<group>"; };
-		F4BA189C249EF52300D42258 /* XRDevice+NSDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XRDevice+NSDictionary.h"; sourceTree = "<group>"; };
-		F4BA189D249EF52300D42258 /* XRDevice+NSDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XRDevice+NSDictionary.m"; sourceTree = "<group>"; };
-		F4BA189F249EF6C800D42258 /* PFTProcess+NSDicionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PFTProcess+NSDicionary.h"; sourceTree = "<group>"; };
-		F4BA18A0249EF6C800D42258 /* PFTProcess+NSDicionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "PFTProcess+NSDicionary.m"; sourceTree = "<group>"; };
-		F4BA18A2249F033D00D42258 /* ActivityMonitorParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActivityMonitorParser.h; sourceTree = "<group>"; };
-		F4BA18A3249F033D00D42258 /* ActivityMonitorParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActivityMonitorParser.m; sourceTree = "<group>"; };
-		F4BA18A5249F08E900D42258 /* CoreAnimationParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreAnimationParser.h; sourceTree = "<group>"; };
-		F4BA18A6249F08E900D42258 /* CoreAnimationParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreAnimationParser.m; sourceTree = "<group>"; };
-		F4BA18A8249F0AE600D42258 /* ConnectionsParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectionsParser.h; sourceTree = "<group>"; };
-		F4BA18A9249F0AE600D42258 /* ConnectionsParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnectionsParser.m; sourceTree = "<group>"; };
+		F4BA1898249DE4C600D42258 /* LeaksParserHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeaksParserHelper.h; sourceTree = "<group>"; };
+		F4BA1899249DE4C600D42258 /* LeaksParserHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeaksParserHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +101,7 @@
 			files = (
 				F4BA1887249DDC1100D42258 /* DVTFoundation.framework in Frameworks */,
 				F4BA1881249DDC0800D42258 /* InstrumentsKit.framework in Frameworks */,
+				F497F2A824A062950002CEFD /* ArgumentParser in Frameworks */,
 				F4BA187F249DDC0200D42258 /* InstrumentsAnalysisCore.framework in Frameworks */,
 				F4BA1886249DDC1100D42258 /* DVTInstrumentsFoundation.framework in Frameworks */,
 				F4BA1888249DDC1100D42258 /* InstrumentsPlugIn.framework in Frameworks */,
@@ -90,6 +112,70 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F439B4FA24A0E836009CEE64 /* LeaksParser */ = {
+			isa = PBXGroup;
+			children = (
+				F439B4F924A0E5CE009CEE64 /* LeaksHeaders.h */,
+				F497F2AE24A079120002CEFD /* LeaksParser.swift */,
+				F4BA1898249DE4C600D42258 /* LeaksParserHelper.h */,
+				F4BA1899249DE4C600D42258 /* LeaksParserHelper.m */,
+			);
+			path = LeaksParser;
+			sourceTree = "<group>";
+		};
+		F439B51724A10A04009CEE64 /* Leaks */ = {
+			isa = PBXGroup;
+			children = (
+				F439B4FF24A0E923009CEE64 /* LeakRun.swift */,
+				F439B4FD24A0E915009CEE64 /* LeakRow.swift */,
+			);
+			path = Leaks;
+			sourceTree = "<group>";
+		};
+		F439B51824A10A0B009CEE64 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				F439B50F24A0FD00009CEE64 /* ActivityRun.swift */,
+				F439B50D24A0FCEB009CEE64 /* ProcessActivity.swift */,
+				F439B50B24A0FCD5009CEE64 /* ActivityRow.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		F439B51924A10A1B009CEE64 /* CoreAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				F439B51324A1096B009CEE64 /* CoreAnimationRun.swift */,
+				F439B51524A10993009CEE64 /* CoreAnimationRow.swift */,
+			);
+			path = CoreAnimation;
+			sourceTree = "<group>";
+		};
+		F439B51C24A11BA2009CEE64 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				F439B51D24A11BB4009CEE64 /* ConnectionsRun.swift */,
+				F439B51F24A11BC7009CEE64 /* ConnectionRow.swift */,
+			);
+			path = Connection;
+			sourceTree = "<group>";
+		};
+		F497F2A924A065FC0002CEFD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F497F2AA24A0662A0002CEFD /* Trace.swift */,
+				F439B50724A0E993009CEE64 /* Device.swift */,
+				F439B50524A0E980009CEE64 /* SelectedProcess.swift */,
+				F439B50324A0E96E009CEE64 /* Instrument.swift */,
+				F439B50124A0E95A009CEE64 /* InstrumentRun.swift */,
+				F439B51724A10A04009CEE64 /* Leaks */,
+				F439B51824A10A0B009CEE64 /* Activity */,
+				F439B51924A10A1B009CEE64 /* CoreAnimation */,
+				F439B51C24A11BA2009CEE64 /* Connection */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F4BA1849249DD7AF00D42258 = {
 			isa = PBXGroup;
 			children = (
@@ -114,9 +200,9 @@
 				F4BA188E249DE09600D42258 /* TraceUtility */,
 				F4BA185C249DD97B00D42258 /* Helpers */,
 				F4BA1893249DE21300D42258 /* Parsers */,
-				F4BA189B249EF4EC00D42258 /* Categories */,
-				F4BA1855249DD7AF00D42258 /* main.m */,
-				F4BA1892249DE0EA00D42258 /* PrefixHeader.h */,
+				F497F2A924A065FC0002CEFD /* Models */,
+				F497F29D24A05E170002CEFD /* Trace2JSON-Bridging-Header.h */,
+				F497F29E24A05E180002CEFD /* main.swift */,
 			);
 			path = Trace2JSON;
 			sourceTree = "<group>";
@@ -125,10 +211,9 @@
 			isa = PBXGroup;
 			children = (
 				F4BA188D249DDF5F00D42258 /* InstrumentsPrivateHeaders.h */,
-				F4BA188A249DDF2200D42258 /* Instruments.h */,
-				F4BA188B249DDF2200D42258 /* Instruments.m */,
-				F4BA185D249DD98900D42258 /* ShellCommand.h */,
-				F4BA185E249DD98900D42258 /* ShellCommand.m */,
+				F497F2A224A05ED80002CEFD /* Instruments.swift */,
+				F497F2A424A05F6F0002CEFD /* ShellCommand.swift */,
+				F439B50924A0FCC0009CEE64 /* RuntimeHacks.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -149,8 +234,7 @@
 		F4BA188E249DE09600D42258 /* TraceUtility */ = {
 			isa = PBXGroup;
 			children = (
-				F4BA188F249DE0AC00D42258 /* TraceUtility.h */,
-				F4BA1890249DE0AC00D42258 /* TraceUtility.m */,
+				F497F2A024A05EB90002CEFD /* TraceUtility.swift */,
 			);
 			path = TraceUtility;
 			sourceTree = "<group>";
@@ -159,29 +243,13 @@
 			isa = PBXGroup;
 			children = (
 				F4BA1897249DE23200D42258 /* ParserProtocol.h */,
-				F4BA1894249DE21F00D42258 /* ParserFactory.h */,
-				F4BA1895249DE21F00D42258 /* ParserFactory.m */,
-				F4BA1898249DE4C600D42258 /* LeaksParser.h */,
-				F4BA1899249DE4C600D42258 /* LeaksParser.m */,
-				F4BA18A2249F033D00D42258 /* ActivityMonitorParser.h */,
-				F4BA18A3249F033D00D42258 /* ActivityMonitorParser.m */,
-				F4BA18A5249F08E900D42258 /* CoreAnimationParser.h */,
-				F4BA18A6249F08E900D42258 /* CoreAnimationParser.m */,
-				F4BA18A8249F0AE600D42258 /* ConnectionsParser.h */,
-				F4BA18A9249F0AE600D42258 /* ConnectionsParser.m */,
+				F497F2AC24A073B00002CEFD /* ParserFactory.swift */,
+				F439B4FA24A0E836009CEE64 /* LeaksParser */,
+				F439B4FB24A0E8E1009CEE64 /* ActivityMonitorParser.swift */,
+				F439B51124A0FE15009CEE64 /* CoreAnimationParser.swift */,
+				F439B51A24A10B70009CEE64 /* ConnectionsParser.swift */,
 			);
 			path = Parsers;
-			sourceTree = "<group>";
-		};
-		F4BA189B249EF4EC00D42258 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				F4BA189C249EF52300D42258 /* XRDevice+NSDictionary.h */,
-				F4BA189D249EF52300D42258 /* XRDevice+NSDictionary.m */,
-				F4BA189F249EF6C800D42258 /* PFTProcess+NSDicionary.h */,
-				F4BA18A0249EF6C800D42258 /* PFTProcess+NSDicionary.m */,
-			);
-			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +268,9 @@
 			dependencies = (
 			);
 			name = Trace2JSON;
+			packageProductDependencies = (
+				F497F2A724A062950002CEFD /* ArgumentParser */,
+			);
 			productName = Trace2JSON;
 			productReference = F4BA1852249DD7AF00D42258 /* Trace2JSON */;
 			productType = "com.apple.product-type.tool";
@@ -215,6 +286,7 @@
 				TargetAttributes = {
 					F4BA1851249DD7AF00D42258 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -227,6 +299,9 @@
 				Base,
 			);
 			mainGroup = F4BA1849249DD7AF00D42258;
+			packageReferences = (
+				F497F2A624A062950002CEFD /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+			);
 			productRefGroup = F4BA1853249DD7AF00D42258 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -241,17 +316,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4BA1891249DE0AC00D42258 /* TraceUtility.m in Sources */,
-				F4BA189A249DE4C600D42258 /* LeaksParser.m in Sources */,
-				F4BA18A1249EF6C800D42258 /* PFTProcess+NSDicionary.m in Sources */,
-				F4BA188C249DDF2200D42258 /* Instruments.m in Sources */,
-				F4BA18A7249F08E900D42258 /* CoreAnimationParser.m in Sources */,
-				F4BA185F249DD98900D42258 /* ShellCommand.m in Sources */,
-				F4BA1856249DD7AF00D42258 /* main.m in Sources */,
-				F4BA189E249EF52300D42258 /* XRDevice+NSDictionary.m in Sources */,
-				F4BA18A4249F033D00D42258 /* ActivityMonitorParser.m in Sources */,
-				F4BA1896249DE21F00D42258 /* ParserFactory.m in Sources */,
-				F4BA18AA249F0AE600D42258 /* ConnectionsParser.m in Sources */,
+				F439B51024A0FD00009CEE64 /* ActivityRun.swift in Sources */,
+				F439B4FE24A0E915009CEE64 /* LeakRow.swift in Sources */,
+				F439B51624A10993009CEE64 /* CoreAnimationRow.swift in Sources */,
+				F497F2AD24A073B00002CEFD /* ParserFactory.swift in Sources */,
+				F439B50E24A0FCEB009CEE64 /* ProcessActivity.swift in Sources */,
+				F497F2AB24A0662A0002CEFD /* Trace.swift in Sources */,
+				F4BA189A249DE4C600D42258 /* LeaksParserHelper.m in Sources */,
+				F439B51E24A11BB4009CEE64 /* ConnectionsRun.swift in Sources */,
+				F497F2A324A05ED80002CEFD /* Instruments.swift in Sources */,
+				F439B50624A0E980009CEE64 /* SelectedProcess.swift in Sources */,
+				F497F29F24A05E180002CEFD /* main.swift in Sources */,
+				F439B51B24A10B70009CEE64 /* ConnectionsParser.swift in Sources */,
+				F439B4FC24A0E8E1009CEE64 /* ActivityMonitorParser.swift in Sources */,
+				F439B50A24A0FCC0009CEE64 /* RuntimeHacks.swift in Sources */,
+				F439B50C24A0FCD5009CEE64 /* ActivityRow.swift in Sources */,
+				F439B50024A0E923009CEE64 /* LeakRun.swift in Sources */,
+				F497F2A124A05EB90002CEFD /* TraceUtility.swift in Sources */,
+				F439B51424A1096B009CEE64 /* CoreAnimationRun.swift in Sources */,
+				F497F2AF24A079120002CEFD /* LeaksParser.swift in Sources */,
+				F497F2A524A05F6F0002CEFD /* ShellCommand.swift in Sources */,
+				F439B50424A0E96E009CEE64 /* Instrument.swift in Sources */,
+				F439B50224A0E95A009CEE64 /* InstrumentRun.swift in Sources */,
+				F439B51224A0FE15009CEE64 /* CoreAnimationParser.swift in Sources */,
+				F439B52024A11BC7009CEE64 /* ConnectionRow.swift in Sources */,
+				F439B50824A0E993009CEE64 /* Device.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,12 +459,13 @@
 		F4BA185A249DD7AF00D42258 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Trace2JSON/Trace2JSON.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PY9WJ3M9MW;
 				ENABLE_HARDENED_RUNTIME = NO;
-				GCC_PREFIX_HEADER = Trace2JSON/PrefixHeader.h;
+				GCC_PREFIX_HEADER = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/Applications/Xcode.app/Contents/SharedFrameworks,
 					/Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks,
@@ -384,6 +474,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.itaysoft.trace2json;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Trace2JSON/Trace2JSON-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
 					/Applications/Xcode.app/Contents/SharedFrameworks,
 					/Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks,
@@ -395,12 +488,13 @@
 		F4BA185B249DD7AF00D42258 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Trace2JSON/Trace2JSON.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PY9WJ3M9MW;
 				ENABLE_HARDENED_RUNTIME = NO;
-				GCC_PREFIX_HEADER = Trace2JSON/PrefixHeader.h;
+				GCC_PREFIX_HEADER = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/Applications/Xcode.app/Contents/SharedFrameworks,
 					/Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks,
@@ -409,6 +503,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.itaysoft.trace2json;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Trace2JSON/Trace2JSON-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
 					/Applications/Xcode.app/Contents/SharedFrameworks,
 					/Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks,
@@ -439,6 +535,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F497F2A624A062950002CEFD /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:apple/swift-argument-parser.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F497F2A724A062950002CEFD /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F497F2A624A062950002CEFD /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F4BA184A249DD7AF00D42258 /* Project object */;
 }

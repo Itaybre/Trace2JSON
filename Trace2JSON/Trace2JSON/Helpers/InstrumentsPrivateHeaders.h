@@ -272,7 +272,7 @@ int XRAnalysisCoreReadCursorGetValue(XRAnalysisCoreReadCursor *cursor, UInt8 col
 
 @property(nonatomic) unsigned long long serialNumber; // @synthesize serialNumber=_serialNumber;
 @property(readonly, nonatomic, getter=isCancelled) BOOL cancelled; // @synthesize cancelled=_cancelled;
-@property(retain, nonatomic) id content; // @synthesize content=_content;
+@property(retain, nonatomic) XRAnalysisCoreTableViewControllerResponse *content; // @synthesize content=_content;
 @property(nonatomic) unsigned long long status; // @synthesize status=_status;
 - (BOOL)_isFinished;
 - (void)_cancel;
@@ -325,30 +325,6 @@ int XRAnalysisCoreReadCursorGetValue(XRAnalysisCoreReadCursor *cursor, UInt8 col
     XRObjectAllocEventViewController *_objectListController;
 }
 - (NSArray<XRContext *> *)_topLevelContexts;
-@end
-
-// MARK: - Memory leaks
-
-@interface XRLeaksRun : XRRun
-- (NSArray *)allLeaks;
-@end
-
-@interface DVT_VMUClassInfo : NSObject
-- (NSString *)remoteClassName;
-- (NSString *)genericInfo;
-- (UInt32)instanceSize;
-@end
-
-@interface XRLeak : NSObject
-- (NSString *) name;
-- (unsigned long) size;
-- (unsigned long) count;
-- (BOOL) inCycle;
-- (BOOL) isRootLeak;
-- (unsigned long long) allocationTimestamp;
-- (NSString *) displayAddress;
-- (DVT_VMUClassInfo *) classInfo;
-- (DVT_VMUClassInfo *) _layout;
 @end
 
 @interface XRModalViewController : NSViewController
