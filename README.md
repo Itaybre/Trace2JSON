@@ -3,7 +3,7 @@ Export Instrument's traces to JSON format
 
 ## Usage
 ```
-trace2json -path <path to .trace file> [-process process name to filter, -pid the proccess pid if known, -out path to save the output json]
+trace2json <path to .trace file> [-process process name to filter, -pid the proccess pid if known, -out path to save the output json]
 ```
 
 ## Supported Instruments
