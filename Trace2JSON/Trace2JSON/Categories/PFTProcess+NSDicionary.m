@@ -8,12 +8,14 @@
 
 #import "PFTProcess+NSDicionary.h"
 
+#define COULD_NOT_GET_VALUE @"Could not get value"
+
 @implementation PFTProcess (NSDicionary)
 
 - (NSDictionary *)dictionary {
     return @{
-        @"name": self.displayName,
-        @"bundleIdentifier": self.bundleIdentifier
+        @"name": self.displayName ? self.displayName : COULD_NOT_GET_VALUE,
+        @"bundleIdentifier": self.bundleIdentifier ? self.bundleIdentifier : COULD_NOT_GET_VALUE
     };
 }
 

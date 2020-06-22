@@ -23,6 +23,7 @@
 		F4BA18A1249EF6C800D42258 /* PFTProcess+NSDicionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA18A0249EF6C800D42258 /* PFTProcess+NSDicionary.m */; };
 		F4BA18A4249F033D00D42258 /* ActivityMonitorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA18A3249F033D00D42258 /* ActivityMonitorParser.m */; };
 		F4BA18A7249F08E900D42258 /* CoreAnimationParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA18A6249F08E900D42258 /* CoreAnimationParser.m */; };
+		F4BA18AA249F0AE600D42258 /* ConnectionsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA18A9249F0AE600D42258 /* ConnectionsParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +69,8 @@
 		F4BA18A3249F033D00D42258 /* ActivityMonitorParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActivityMonitorParser.m; sourceTree = "<group>"; };
 		F4BA18A5249F08E900D42258 /* CoreAnimationParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreAnimationParser.h; sourceTree = "<group>"; };
 		F4BA18A6249F08E900D42258 /* CoreAnimationParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreAnimationParser.m; sourceTree = "<group>"; };
+		F4BA18A8249F0AE600D42258 /* ConnectionsParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectionsParser.h; sourceTree = "<group>"; };
+		F4BA18A9249F0AE600D42258 /* ConnectionsParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnectionsParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +167,8 @@
 				F4BA18A3249F033D00D42258 /* ActivityMonitorParser.m */,
 				F4BA18A5249F08E900D42258 /* CoreAnimationParser.h */,
 				F4BA18A6249F08E900D42258 /* CoreAnimationParser.m */,
+				F4BA18A8249F0AE600D42258 /* ConnectionsParser.h */,
+				F4BA18A9249F0AE600D42258 /* ConnectionsParser.m */,
 			);
 			path = Parsers;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 				F4BA189E249EF52300D42258 /* XRDevice+NSDictionary.m in Sources */,
 				F4BA18A4249F033D00D42258 /* ActivityMonitorParser.m in Sources */,
 				F4BA1896249DE21F00D42258 /* ParserFactory.m in Sources */,
+				F4BA18AA249F0AE600D42258 /* ConnectionsParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

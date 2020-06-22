@@ -10,6 +10,7 @@
 #import "LeaksParser.h"
 #import "ActivityMonitorParser.h"
 #import "CoreAnimationParser.h"
+#import "ConnectionsParser.h"
 
 @interface ParserFactory ()
 @property (nonatomic, strong) NSDictionary<NSString *,NSObject<ParserProtocol> *> *parsers;
@@ -22,7 +23,8 @@
         self.parsers = @{
             @"com.apple.xray.instrument-type.homeleaks": [LeaksParser new],
             @"com.apple.xray.instrument-type.activity": [ActivityMonitorParser new],
-            @"com.apple.dt.coreanimation-fps": [CoreAnimationParser new]
+            @"com.apple.dt.coreanimation-fps": [CoreAnimationParser new],
+            @"com.apple.dt.network-connections": [ConnectionsParser new]
         };
     }
     return self;
