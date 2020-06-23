@@ -31,12 +31,17 @@ OPTIONS:
 ## FAQ
 
 #### Supported Instruments
+
 - Activity Monitor
 - Core Animation FPS
 - Network Connections
 - Leaks
 - Allocations
 - CPU Activity Impact
+
+#### Known Issues
+
+- Doesn't work with Xcode 12
 
 ## Inspiration
 [TraceUtility](https://github.com/Qusic/TraceUtility)
