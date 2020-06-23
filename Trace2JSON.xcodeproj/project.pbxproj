@@ -25,6 +25,12 @@
 		F439B51E24A11BB4009CEE64 /* ConnectionsRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B51D24A11BB4009CEE64 /* ConnectionsRun.swift */; };
 		F439B52024A11BC7009CEE64 /* ConnectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B51F24A11BC7009CEE64 /* ConnectionRow.swift */; };
 		F439B52224A13E58009CEE64 /* ParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B52124A13E58009CEE64 /* ParserProtocol.swift */; };
+		F46ED45D24A2A1960097EFFF /* CPUImpactParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ED45C24A2A1960097EFFF /* CPUImpactParser.swift */; };
+		F46ED46024A2A1C50097EFFF /* CPUActivityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ED45F24A2A1C50097EFFF /* CPUActivityRow.swift */; };
+		F46ED46224A2A1D90097EFFF /* CPUImpact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ED46124A2A1D90097EFFF /* CPUImpact.swift */; };
+		F46ED46424A2A1EF0097EFFF /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ED46324A2A1EF0097EFFF /* Time.swift */; };
+		F46ED46624A2A1FB0097EFFF /* Impact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ED46524A2A1FB0097EFFF /* Impact.swift */; };
+		F46ED46824A2A2050097EFFF /* CPUActivityRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46ED46724A2A2050097EFFF /* CPUActivityRun.swift */; };
 		F497F29F24A05E180002CEFD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497F29E24A05E180002CEFD /* main.swift */; };
 		F497F2A124A05EB90002CEFD /* TraceUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497F2A024A05EB90002CEFD /* TraceUtility.swift */; };
 		F497F2A324A05ED80002CEFD /* Instruments.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497F2A224A05ED80002CEFD /* Instruments.swift */; };
@@ -81,6 +87,12 @@
 		F439B51D24A11BB4009CEE64 /* ConnectionsRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsRun.swift; sourceTree = "<group>"; };
 		F439B51F24A11BC7009CEE64 /* ConnectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionRow.swift; sourceTree = "<group>"; };
 		F439B52124A13E58009CEE64 /* ParserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserProtocol.swift; sourceTree = "<group>"; };
+		F46ED45C24A2A1960097EFFF /* CPUImpactParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUImpactParser.swift; sourceTree = "<group>"; };
+		F46ED45F24A2A1C50097EFFF /* CPUActivityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUActivityRow.swift; sourceTree = "<group>"; };
+		F46ED46124A2A1D90097EFFF /* CPUImpact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUImpact.swift; sourceTree = "<group>"; };
+		F46ED46324A2A1EF0097EFFF /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		F46ED46524A2A1FB0097EFFF /* Impact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Impact.swift; sourceTree = "<group>"; };
+		F46ED46724A2A2050097EFFF /* CPUActivityRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUActivityRun.swift; sourceTree = "<group>"; };
 		F497F29D24A05E170002CEFD /* Trace2JSON-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trace2JSON-Bridging-Header.h"; sourceTree = "<group>"; };
 		F497F29E24A05E180002CEFD /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		F497F2A024A05EB90002CEFD /* TraceUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceUtility.swift; sourceTree = "<group>"; };
@@ -177,6 +189,18 @@
 			path = Connection;
 			sourceTree = "<group>";
 		};
+		F46ED45E24A2A1BB0097EFFF /* CPUImpact */ = {
+			isa = PBXGroup;
+			children = (
+				F46ED46724A2A2050097EFFF /* CPUActivityRun.swift */,
+				F46ED45F24A2A1C50097EFFF /* CPUActivityRow.swift */,
+				F46ED46124A2A1D90097EFFF /* CPUImpact.swift */,
+				F46ED46324A2A1EF0097EFFF /* Time.swift */,
+				F46ED46524A2A1FB0097EFFF /* Impact.swift */,
+			);
+			path = CPUImpact;
+			sourceTree = "<group>";
+		};
 		F497F2A924A065FC0002CEFD /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +211,7 @@
 				F439B50324A0E96E009CEE64 /* Instrument.swift */,
 				F439B50124A0E95A009CEE64 /* InstrumentRun.swift */,
 				F4DB5AC924A18A44006AB436 /* ProcessMatch.swift */,
+				F46ED45E24A2A1BB0097EFFF /* CPUImpact */,
 				F439B51724A10A04009CEE64 /* Leaks */,
 				F439B51824A10A0B009CEE64 /* Activity */,
 				F439B51924A10A1B009CEE64 /* CoreAnimation */,
@@ -268,6 +293,7 @@
 				F439B4FB24A0E8E1009CEE64 /* ActivityMonitorParser.swift */,
 				F439B51124A0FE15009CEE64 /* CoreAnimationParser.swift */,
 				F439B51A24A10B70009CEE64 /* ConnectionsParser.swift */,
+				F46ED45C24A2A1960097EFFF /* CPUImpactParser.swift */,
 				F4BC0DBB24A281E300BF6650 /* AllocationsParser */,
 			);
 			path = Parsers;
@@ -368,8 +394,11 @@
 				F497F2AB24A0662A0002CEFD /* Trace.swift in Sources */,
 				F4BA189A249DE4C600D42258 /* LeaksParserHelper.m in Sources */,
 				F439B51E24A11BB4009CEE64 /* ConnectionsRun.swift in Sources */,
+				F46ED45D24A2A1960097EFFF /* CPUImpactParser.swift in Sources */,
+				F46ED46024A2A1C50097EFFF /* CPUActivityRow.swift in Sources */,
 				F497F2A324A05ED80002CEFD /* Instruments.swift in Sources */,
 				F4DB5ACA24A18A44006AB436 /* ProcessMatch.swift in Sources */,
+				F46ED46824A2A2050097EFFF /* CPUActivityRun.swift in Sources */,
 				F439B50624A0E980009CEE64 /* SelectedProcess.swift in Sources */,
 				F497F29F24A05E180002CEFD /* main.swift in Sources */,
 				F4BC0DE224A28E2200BF6650 /* AllocationsRow.swift in Sources */,
@@ -378,10 +407,13 @@
 				F439B50A24A0FCC0009CEE64 /* RuntimeHacks.swift in Sources */,
 				F439B50C24A0FCD5009CEE64 /* ActivityRow.swift in Sources */,
 				F439B50024A0E923009CEE64 /* LeakRun.swift in Sources */,
+				F46ED46624A2A1FB0097EFFF /* Impact.swift in Sources */,
 				F497F2A124A05EB90002CEFD /* TraceUtility.swift in Sources */,
 				F439B51424A1096B009CEE64 /* CoreAnimationRun.swift in Sources */,
 				F4DB5AC824A186AB006AB436 /* ProcessRegex.swift in Sources */,
+				F46ED46424A2A1EF0097EFFF /* Time.swift in Sources */,
 				F497F2AF24A079120002CEFD /* LeaksParser.swift in Sources */,
+				F46ED46224A2A1D90097EFFF /* CPUImpact.swift in Sources */,
 				F439B50424A0E96E009CEE64 /* Instrument.swift in Sources */,
 				F439B50224A0E95A009CEE64 /* InstrumentRun.swift in Sources */,
 				F4BC0DBE24A2829300BF6650 /* AllocationsParserHelper.m in Sources */,
