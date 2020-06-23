@@ -13,6 +13,7 @@ class TraceUtility {
     private var parserFactory = ParserFactory()
     private var process: String?
     private var pid: String?
+    private var showUnsupported: Bool
     
     struct TraceConstants {
         static let instrumentsTrace = "com.apple.instruments.trace"
@@ -20,10 +21,11 @@ class TraceUtility {
         static let firstNode = "_firstNode"
     }
     
-    init(path: String, process: String?, pid: String?) throws {
+    init(path: String, process: String?, pid: String?, showUnsupported: Bool) throws {
         document = try PFTTraceDocument(contentsOf: URL(fileURLWithPath: path), ofType: TraceConstants.instrumentsTrace)
         self.process = process
         self.pid = pid
+        self.showUnsupported = showUnsupported
     }
     
     func processDocument() -> Trace {
@@ -47,7 +49,8 @@ class TraceUtility {
     }
     
     func processInstrument(_ instrument: XRInstrument) -> Instrument? {
-        guard let runs = instrument.allRuns() else {
+        guard let runs = instrument.allRuns(),
+            let instrumentId = instrument.type()?.uuid() else {
             return nil
         }
         
@@ -55,51 +58,11 @@ class TraceUtility {
         result.runsCount = runs.count
         result.type = instrument.type()?.uuid()
         
-        for run in runs {
-            instrument.setCurrentRun(run)
-            
-            var contexts: [XRContext] = []
-            if let _ = instrument as? XRLegacyInstrument {}
-            else {
-                guard let standardController = XRAnalysisCoreStandardController(instrument: instrument,
-                                                                                document: document) else {
-                    continue
-                }
-                instrument.setViewController(standardController)
-                standardController.instrumentDidChangeSwitches()
-                standardController.instrumentChangedTableRequirements()
-                
-                guard let detailController: XRAnalysisCoreDetailViewController = RuntimeHacks.getIvar(instance: standardController,
-                                                                                                      name: TraceConstants.detailController) else {
-                    continue
-                }
-                detailController.restoreViewState()
-                
-                guard var detailNode: XRAnalysisCoreDetailNode? = RuntimeHacks.getIvar(instance: detailController,
-                                                                                       name: TraceConstants.firstNode) else {
-                    continue
-                }
-                
-                while(detailNode != nil) {
-                    if let resultContext = createContext(detailNode!, detailController) {
-                        contexts.append(resultContext)
-                    }
-                    detailNode = detailNode?.nextSibling()
-                }
-            }
-            
-            if let instrumentId = instrument.type()?.uuid(),
-                let parser = parserFactory.parserForInstrument(instrument: instrumentId) {
-                result.runs.append(parseContexts(contexts, run: run, parser: parser))
-            }
-            
-            if let _ = instrument as? XRLegacyInstrument {}
-            else {
-                instrument.viewController()?.instrumentWillBecomeInvalid()
-                instrument.setViewController(nil)
-            }
+        if let parser = parserFactory.parserForInstrument(instrument: instrumentId) {
+            processRuns(runs, instrument, parser, result)
+        } else if !showUnsupported {
+            return nil
         }
-        
         
         return result
     }
@@ -123,6 +86,50 @@ class TraceUtility {
             return parser.parseContext(contexts, run: run, pid: pid)
         } else {
             return parser.parseContext(contexts, run: run)
+        }
+    }
+
+fileprivate func processRuns(_ runs: [XRRun], _ instrument: XRInstrument, _ parser: ParserProtocol, _ result: Instrument) {
+        for run in runs {
+            instrument.setCurrentRun(run)
+            
+            var contexts: [XRContext] = []
+            if let _ = instrument as? XRLegacyInstrument {}
+            else {
+                guard let standardController = XRAnalysisCoreStandardController(instrument: instrument,
+                                                                                document: document) else {
+                                                                                    continue
+                }
+                instrument.setViewController(standardController)
+                standardController.instrumentDidChangeSwitches()
+                standardController.instrumentChangedTableRequirements()
+                
+                guard let detailController: XRAnalysisCoreDetailViewController = RuntimeHacks.getIvar(instance: standardController,
+                                                                                                      name: TraceConstants.detailController) else {
+                                                                                                        continue
+                }
+                detailController.restoreViewState()
+                
+                guard var detailNode: XRAnalysisCoreDetailNode? = RuntimeHacks.getIvar(instance: detailController,
+                                                                                       name: TraceConstants.firstNode) else {
+                                                                                        continue
+                }
+                
+                while(detailNode != nil) {
+                    if let resultContext = createContext(detailNode!, detailController) {
+                        contexts.append(resultContext)
+                    }
+                    detailNode = detailNode?.nextSibling()
+                }
+            }
+            
+            result.runs.append(parseContexts(contexts, run: run, parser: parser))
+            
+            if let _ = instrument as? XRLegacyInstrument {}
+            else {
+                instrument.viewController()?.instrumentWillBecomeInvalid()
+                instrument.setViewController(nil)
+            }
         }
     }
 }

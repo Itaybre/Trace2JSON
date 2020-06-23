@@ -23,6 +23,9 @@ struct ParseTrace: ParsableCommand {
     @Flag(name: .long, help: "Enable JSON pretty print.")
     var pretty: Bool
     
+    @Flag(name: .shortAndLong, help: "Show unsupported instruments in output JSON.")
+    var showUnsupported: Bool
+    
     @Option(name: .shortAndLong, help: "Output path.")
     var output: String?
 
@@ -36,7 +39,10 @@ struct ParseTrace: ParsableCommand {
         
         Instruments.loadPlugins()
         
-        let traceUtility = try TraceUtility(path: path, process: process, pid: pid)
+        let traceUtility = try TraceUtility(path: path,
+                                            process: process,
+                                            pid: pid,
+                                            showUnsupported: showUnsupported)
         let trace = traceUtility.processDocument()
         
         try showResults(trace)
