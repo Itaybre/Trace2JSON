@@ -11,6 +11,7 @@ import Foundation
 struct ConnectionRow: Codable {
     let time: String
     let process: String
+    let pid: String
     let interface: String
     let connectionProtocol: String
     let local: String

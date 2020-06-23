@@ -9,11 +9,6 @@
 import Foundation
 import Regex
 
-struct ProcessMatch {
-    let process: String
-    let pid: String
-}
-
 class ProcessRegex {
     private let pattern: StaticString = "([a-zA-Z]\\w+) \\((-?\\d+)\\)"
     

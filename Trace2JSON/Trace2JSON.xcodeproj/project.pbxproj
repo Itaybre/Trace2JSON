@@ -42,6 +42,7 @@
 		F4DB5AC324A18120006AB436 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB5AC224A18120006AB436 /* Filter.swift */; };
 		F4DB5AC624A185BF006AB436 /* Regex in Frameworks */ = {isa = PBXBuildFile; productRef = F4DB5AC524A185BF006AB436 /* Regex */; };
 		F4DB5AC824A186AB006AB436 /* ProcessRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB5AC724A186AB006AB436 /* ProcessRegex.swift */; };
+		F4DB5ACA24A18A44006AB436 /* ProcessMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB5AC924A18A44006AB436 /* ProcessMatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -96,6 +97,7 @@
 		F4BA1899249DE4C600D42258 /* LeaksParserHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeaksParserHelper.m; sourceTree = "<group>"; };
 		F4DB5AC224A18120006AB436 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		F4DB5AC724A186AB006AB436 /* ProcessRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessRegex.swift; sourceTree = "<group>"; };
+		F4DB5AC924A18A44006AB436 /* ProcessMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessMatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				F439B51824A10A0B009CEE64 /* Activity */,
 				F439B51924A10A1B009CEE64 /* CoreAnimation */,
 				F439B51C24A11BA2009CEE64 /* Connection */,
+				F4DB5AC924A18A44006AB436 /* ProcessMatch.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				F4BA189A249DE4C600D42258 /* LeaksParserHelper.m in Sources */,
 				F439B51E24A11BB4009CEE64 /* ConnectionsRun.swift in Sources */,
 				F497F2A324A05ED80002CEFD /* Instruments.swift in Sources */,
+				F4DB5ACA24A18A44006AB436 /* ProcessMatch.swift in Sources */,
 				F439B50624A0E980009CEE64 /* SelectedProcess.swift in Sources */,
 				F497F29F24A05E180002CEFD /* main.swift in Sources */,
 				F439B51B24A10B70009CEE64 /* ConnectionsParser.swift in Sources */,

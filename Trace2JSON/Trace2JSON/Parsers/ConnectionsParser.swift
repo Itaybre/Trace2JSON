@@ -9,7 +9,21 @@
 import Foundation
 
 class ConnectionsParser: ParserProtocol {
+    private let regexHelper = ProcessRegex()
+    
     func parseContext(_ contexts: [XRContext], run: XRRun) -> InstrumentRun {
+        return parseContext(contexts, run: run, filter: Filter.noFilter, filterString: nil)
+    }
+    
+    func parseContext(_ contexts: [XRContext], run: XRRun, pid: String) -> InstrumentRun {
+        return parseContext(contexts, run: run, filter: Filter.filterPid, filterString: pid)
+    }
+    
+    func parseContext(_ contexts: [XRContext], run: XRRun, process: String) -> InstrumentRun {
+        return parseContext(contexts, run: run, filter: Filter.filterProcess, filterString: process)
+    }
+    
+    private func parseContext(_ contexts: [XRContext], run: XRRun, filter: Filter, filterString: String?) -> InstrumentRun {
         let connectionRun = ConnectionsRun()
         connectionRun.run = Int(run.runNumber())
         connectionRun.runName = run.displayName()
@@ -20,21 +34,21 @@ class ConnectionsParser: ParserProtocol {
         guard let container = context.container() as? XRAnalysisCoreDetailViewController,
             let controller: XRAnalysisCoreTableViewController = RuntimeHacks.getIvar(instance: container, name: "_tabularViewController"),
             let array = controller._currentResponse()?.content.rows(),
-            let filter: XRAnalysisCoreTableQuery = RuntimeHacks.getIvar(instance: array.source()!, name: "_filter"),
-            let formatter = filter.fullTextSearchSpec()!.formatter() else {
+            let analysisCoreTable: XRAnalysisCoreTableQuery = RuntimeHacks.getIvar(instance: array.source()!, name: "_filter"),
+            let formatter = analysisCoreTable.fullTextSearchSpec()!.formatter() else {
                 return connectionRun
         }
         
         array.access({ (accessor) in
             accessor?.readRowsStarting(at: 0, dimension: 0, block: { (cursor) in
-                self.readRow(cursor, formatter, connectionRun)
+                self.readRow(cursor, formatter, connectionRun, filter, filterString)
             })
         })
         
         return connectionRun
     }
     
-    fileprivate func readRow(_ cursor: UnsafeMutableRawPointer?, _ formatter: XREngineeringTypeFormatter, _ run: ConnectionsRun) {
+    fileprivate func readRow(_ cursor: UnsafeMutableRawPointer?, _ formatter: XREngineeringTypeFormatter, _ run: ConnectionsRun, _ filter: Filter, _ filterString: String?) {
         while(XRAnalysisCoreReadCursorNext(cursor)) {
             var objectFound: Int32 = 0
             var object: XRAnalysisCoreValue? = nil
@@ -63,11 +77,18 @@ class ConnectionsParser: ParserProtocol {
             let minRTT = objectFound != 0 ? formatter.string(for: object) ?? "" : ""
             objectFound = XRAnalysisCoreReadCursorGetValue(cursor, 17, &object)
             let avgRTT = objectFound != 0 ? formatter.string(for: object) ?? "" : ""
+            
+            let processMatch = regexHelper.matchString(process)
+            if filter == .filterProcess && processMatch.process != filterString {
+                continue
+            } else if filter == .filterPid && processMatch.pid != filterString {
+                continue
+            }
 
-            let row = ConnectionRow(time: time, process: process, interface: interface,
-                                    connectionProtocol: protocolUsed, local: local, remote: remote,
-                                    packetsIn: packetsIn, bytesIn: bytesIn, packetsOut: packetsOut,
-                                    bytesOut: bytesOut, minRTT: minRTT, avgRTT: avgRTT)
+            let row = ConnectionRow(time: time, process: processMatch.process, pid: processMatch.pid,
+                                    interface: interface, connectionProtocol: protocolUsed, local: local,
+                                    remote: remote, packetsIn: packetsIn, bytesIn: bytesIn,
+                                    packetsOut: packetsOut, bytesOut: bytesOut, minRTT: minRTT, avgRTT: avgRTT)
             run.result.append(row)
         }
     }
