@@ -41,7 +41,7 @@ OPTIONS:
 
 #### Known Issues
 
-- Doesn't work with Xcode 12
+- Doesn't work with Xcode 12 but you can use the new CLI `xtrace` for this
 
 ## Inspiration
 [TraceUtility](https://github.com/Qusic/TraceUtility)
