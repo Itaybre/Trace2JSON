@@ -24,10 +24,10 @@
 		F439B51B24A10B70009CEE64 /* ConnectionsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B51A24A10B70009CEE64 /* ConnectionsParser.swift */; };
 		F439B51E24A11BB4009CEE64 /* ConnectionsRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B51D24A11BB4009CEE64 /* ConnectionsRun.swift */; };
 		F439B52024A11BC7009CEE64 /* ConnectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B51F24A11BC7009CEE64 /* ConnectionRow.swift */; };
+		F439B52224A13E58009CEE64 /* ParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439B52124A13E58009CEE64 /* ParserProtocol.swift */; };
 		F497F29F24A05E180002CEFD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497F29E24A05E180002CEFD /* main.swift */; };
 		F497F2A124A05EB90002CEFD /* TraceUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497F2A024A05EB90002CEFD /* TraceUtility.swift */; };
 		F497F2A324A05ED80002CEFD /* Instruments.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497F2A224A05ED80002CEFD /* Instruments.swift */; };
-		F497F2A524A05F6F0002CEFD /* ShellCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497F2A424A05F6F0002CEFD /* ShellCommand.swift */; };
 		F497F2A824A062950002CEFD /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = F497F2A724A062950002CEFD /* ArgumentParser */; };
 		F497F2AB24A0662A0002CEFD /* Trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497F2AA24A0662A0002CEFD /* Trace.swift */; };
 		F497F2AD24A073B00002CEFD /* ParserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497F2AC24A073B00002CEFD /* ParserFactory.swift */; };
@@ -39,6 +39,9 @@
 		F4BA1888249DDC1100D42258 /* InstrumentsPlugIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1884249DDC1100D42258 /* InstrumentsPlugIn.framework */; };
 		F4BA1889249DDC1100D42258 /* DVTInstrumentsUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1885249DDC1100D42258 /* DVTInstrumentsUtilities.framework */; };
 		F4BA189A249DE4C600D42258 /* LeaksParserHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA1899249DE4C600D42258 /* LeaksParserHelper.m */; };
+		F4DB5AC324A18120006AB436 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB5AC224A18120006AB436 /* Filter.swift */; };
+		F4DB5AC624A185BF006AB436 /* Regex in Frameworks */ = {isa = PBXBuildFile; productRef = F4DB5AC524A185BF006AB436 /* Regex */; };
+		F4DB5AC824A186AB006AB436 /* ProcessRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB5AC724A186AB006AB436 /* ProcessRegex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -72,11 +75,11 @@
 		F439B51A24A10B70009CEE64 /* ConnectionsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsParser.swift; sourceTree = "<group>"; };
 		F439B51D24A11BB4009CEE64 /* ConnectionsRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsRun.swift; sourceTree = "<group>"; };
 		F439B51F24A11BC7009CEE64 /* ConnectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionRow.swift; sourceTree = "<group>"; };
+		F439B52124A13E58009CEE64 /* ParserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserProtocol.swift; sourceTree = "<group>"; };
 		F497F29D24A05E170002CEFD /* Trace2JSON-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trace2JSON-Bridging-Header.h"; sourceTree = "<group>"; };
 		F497F29E24A05E180002CEFD /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		F497F2A024A05EB90002CEFD /* TraceUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceUtility.swift; sourceTree = "<group>"; };
 		F497F2A224A05ED80002CEFD /* Instruments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruments.swift; sourceTree = "<group>"; };
-		F497F2A424A05F6F0002CEFD /* ShellCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellCommand.swift; sourceTree = "<group>"; };
 		F497F2AA24A0662A0002CEFD /* Trace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trace.swift; sourceTree = "<group>"; };
 		F497F2AC24A073B00002CEFD /* ParserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserFactory.swift; sourceTree = "<group>"; };
 		F497F2AE24A079120002CEFD /* LeaksParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaksParser.swift; sourceTree = "<group>"; };
@@ -89,9 +92,10 @@
 		F4BA1884249DDC1100D42258 /* InstrumentsPlugIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InstrumentsPlugIn.framework; path = ../../../../Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks/InstrumentsPlugIn.framework; sourceTree = "<group>"; };
 		F4BA1885249DDC1100D42258 /* DVTInstrumentsUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTInstrumentsUtilities.framework; path = ../../../../Applications/Xcode.app/Contents/SharedFrameworks/DVTInstrumentsUtilities.framework; sourceTree = "<group>"; };
 		F4BA188D249DDF5F00D42258 /* InstrumentsPrivateHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstrumentsPrivateHeaders.h; sourceTree = "<group>"; };
-		F4BA1897249DE23200D42258 /* ParserProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParserProtocol.h; sourceTree = "<group>"; };
 		F4BA1898249DE4C600D42258 /* LeaksParserHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeaksParserHelper.h; sourceTree = "<group>"; };
 		F4BA1899249DE4C600D42258 /* LeaksParserHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeaksParserHelper.m; sourceTree = "<group>"; };
+		F4DB5AC224A18120006AB436 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		F4DB5AC724A186AB006AB436 /* ProcessRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessRegex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4DB5AC624A185BF006AB436 /* Regex in Frameworks */,
 				F4BA1887249DDC1100D42258 /* DVTFoundation.framework in Frameworks */,
 				F4BA1881249DDC0800D42258 /* InstrumentsKit.framework in Frameworks */,
 				F497F2A824A062950002CEFD /* ArgumentParser in Frameworks */,
@@ -163,6 +168,7 @@
 		F497F2A924A065FC0002CEFD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F4DB5AC224A18120006AB436 /* Filter.swift */,
 				F497F2AA24A0662A0002CEFD /* Trace.swift */,
 				F439B50724A0E993009CEE64 /* Device.swift */,
 				F439B50524A0E980009CEE64 /* SelectedProcess.swift */,
@@ -212,8 +218,8 @@
 			children = (
 				F4BA188D249DDF5F00D42258 /* InstrumentsPrivateHeaders.h */,
 				F497F2A224A05ED80002CEFD /* Instruments.swift */,
-				F497F2A424A05F6F0002CEFD /* ShellCommand.swift */,
 				F439B50924A0FCC0009CEE64 /* RuntimeHacks.swift */,
+				F4DB5AC724A186AB006AB436 /* ProcessRegex.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -242,7 +248,7 @@
 		F4BA1893249DE21300D42258 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
-				F4BA1897249DE23200D42258 /* ParserProtocol.h */,
+				F439B52124A13E58009CEE64 /* ParserProtocol.swift */,
 				F497F2AC24A073B00002CEFD /* ParserFactory.swift */,
 				F439B4FA24A0E836009CEE64 /* LeaksParser */,
 				F439B4FB24A0E8E1009CEE64 /* ActivityMonitorParser.swift */,
@@ -270,6 +276,7 @@
 			name = Trace2JSON;
 			packageProductDependencies = (
 				F497F2A724A062950002CEFD /* ArgumentParser */,
+				F4DB5AC524A185BF006AB436 /* Regex */,
 			);
 			productName = Trace2JSON;
 			productReference = F4BA1852249DD7AF00D42258 /* Trace2JSON */;
@@ -301,6 +308,7 @@
 			mainGroup = F4BA1849249DD7AF00D42258;
 			packageReferences = (
 				F497F2A624A062950002CEFD /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+				F4DB5AC424A185BF006AB436 /* XCRemoteSwiftPackageReference "Regex" */,
 			);
 			productRefGroup = F4BA1853249DD7AF00D42258 /* Products */;
 			projectDirPath = "";
@@ -334,12 +342,14 @@
 				F439B50024A0E923009CEE64 /* LeakRun.swift in Sources */,
 				F497F2A124A05EB90002CEFD /* TraceUtility.swift in Sources */,
 				F439B51424A1096B009CEE64 /* CoreAnimationRun.swift in Sources */,
+				F4DB5AC824A186AB006AB436 /* ProcessRegex.swift in Sources */,
 				F497F2AF24A079120002CEFD /* LeaksParser.swift in Sources */,
-				F497F2A524A05F6F0002CEFD /* ShellCommand.swift in Sources */,
 				F439B50424A0E96E009CEE64 /* Instrument.swift in Sources */,
 				F439B50224A0E95A009CEE64 /* InstrumentRun.swift in Sources */,
 				F439B51224A0FE15009CEE64 /* CoreAnimationParser.swift in Sources */,
 				F439B52024A11BC7009CEE64 /* ConnectionRow.swift in Sources */,
+				F4DB5AC324A18120006AB436 /* Filter.swift in Sources */,
+				F439B52224A13E58009CEE64 /* ParserProtocol.swift in Sources */,
 				F439B50824A0E993009CEE64 /* Device.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,6 +555,14 @@
 				minimumVersion = 0.1.0;
 			};
 		};
+		F4DB5AC424A185BF006AB436 /* XCRemoteSwiftPackageReference "Regex" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:sharplet/Regex.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -552,6 +570,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F497F2A624A062950002CEFD /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
 			productName = ArgumentParser;
+		};
+		F4DB5AC524A185BF006AB436 /* Regex */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4DB5AC424A185BF006AB436 /* XCRemoteSwiftPackageReference "Regex" */;
+			productName = Regex;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

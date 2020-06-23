@@ -11,9 +11,19 @@ import Foundation
 class TraceUtility {
     private var document: PFTTraceDocument
     private var parserFactory = ParserFactory()
+    private var process: String?
+    private var pid: String?
     
-    init(path: String) throws {
-        document = try PFTTraceDocument(contentsOf: URL(fileURLWithPath: path), ofType: "com.apple.instruments.trace")
+    struct TraceConstants {
+        static let instrumentsTrace = "com.apple.instruments.trace"
+        static let detailController = "_detailController"
+        static let firstNode = "_firstNode"
+    }
+    
+    init(path: String, process: String?, pid: String?) throws {
+        document = try PFTTraceDocument(contentsOf: URL(fileURLWithPath: path), ofType: TraceConstants.instrumentsTrace)
+        self.process = process
+        self.pid = pid
     }
     
     func processDocument() -> Trace {
@@ -51,20 +61,23 @@ class TraceUtility {
             var contexts: [XRContext] = []
             if let _ = instrument as? XRLegacyInstrument {}
             else {
-                let standardController = XRAnalysisCoreStandardController(instrument: instrument, document: document)
+                guard let standardController = XRAnalysisCoreStandardController(instrument: instrument,
+                                                                                document: document) else {
+                    continue
+                }
                 instrument.setViewController(standardController)
-                standardController?.instrumentDidChangeSwitches()
-                standardController?.instrumentChangedTableRequirements()
+                standardController.instrumentDidChangeSwitches()
+                standardController.instrumentChangedTableRequirements()
                 
-                guard let detailIvar = class_getInstanceVariable(standardController?.classForCoder,"_detailController"),
-                    let detailController = object_getIvar(standardController, detailIvar) as? XRAnalysisCoreDetailViewController else {
-                        continue
+                guard let detailController: XRAnalysisCoreDetailViewController = RuntimeHacks.getIvar(instance: standardController,
+                                                                                                      name: TraceConstants.detailController) else {
+                    continue
                 }
                 detailController.restoreViewState()
                 
-                guard let nodeIvar = class_getInstanceVariable(detailController.classForCoder,"_firstNode"),
-                    var detailNode = object_getIvar(detailController, nodeIvar) as? XRAnalysisCoreDetailNode? else {
-                        continue
+                guard var detailNode: XRAnalysisCoreDetailNode? = RuntimeHacks.getIvar(instance: detailController,
+                                                                                       name: TraceConstants.firstNode) else {
+                    continue
                 }
                 
                 while(detailNode != nil) {
@@ -77,7 +90,7 @@ class TraceUtility {
             
             if let instrumentId = instrument.type()?.uuid(),
                 let parser = parserFactory.parserForInstrument(instrument: instrumentId) {
-                result.runs.append(parser.parseContext(contexts, run: run))
+                result.runs.append(parseContexts(contexts, run: run, parser: parser))
             }
             
             if let _ = instrument as? XRLegacyInstrument {}
@@ -102,37 +115,14 @@ class TraceUtility {
                          container: detailController,
                          parentContext: createContext(detailNode.parent, detailController))
     }
-
-//
-//            NSString *instrumentID = instrument.type.uuid;
-//            id<ParserProtocol> parser = [[ParserFactory new] parserForInstrument:instrumentID];
-//            if (parser) {
-//                NSDictionary *parserResult = @{
-//                    @"run": @(run.runNumber),
-//                    @"runName": run.displayName,
-//                    @"result": [parser parseContext:contexts withRun:run]
-//                };
-//                [runsParsed addObject:parserResult];
-//            } else {
-//                NSDictionary *parserResult = @{
-//                    @"run": @(run.runNumber),
-//                    @"runName": run.displayName,
-//                    @"result": @"unsupported instrument",
-//                    @"unsupported": @(YES)
-//                };
-//                [runsParsed addObject:parserResult];
-//                Print(@"Data processor has not been implemented for the instrument: %@", instrument.type.uuid);
-//            }
-//        }
-//        [instrumentDictionary setObject:runsParsed forKey:@"runs"];
-//
-//        if (![instrument isKindOfClass:XRLegacyInstrument.class]) {
-//            [instrument.viewController instrumentWillBecomeInvalid];
-//            instrument.viewController = nil;
-//        }
-//
-//        return instrumentDictionary;
-//    }
-//
-//    @end
+    
+    func parseContexts(_ contexts: [XRContext], run: XRRun, parser: ParserProtocol) -> InstrumentRun {
+        if let process = process {
+            return parser.parseContext(contexts, run: run, process: process)
+        } else if let pid = pid {
+            return parser.parseContext(contexts, run: run, pid: pid)
+        } else {
+            return parser.parseContext(contexts, run: run)
+        }
+    }
 }

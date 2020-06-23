@@ -11,6 +11,7 @@ import Foundation
 struct ActivityRow: Codable {
     let time: String
     let process: String
+    let pid: String
     let cpu: String
     let memory: String
     let threads: String

@@ -9,7 +9,21 @@
 import Foundation
 
 class ActivityMonitorParser: ParserProtocol {
+    private let regexHelper = ProcessRegex()
+    
     func parseContext(_ contexts: [XRContext], run: XRRun) -> InstrumentRun {
+        return parseContext(contexts, run: run, filter: Filter.noFilter, filterString: nil)
+    }
+    
+    func parseContext(_ contexts: [XRContext], run: XRRun, pid: String) -> InstrumentRun {
+        return parseContext(contexts, run: run, filter: Filter.filterPid, filterString: pid)
+    }
+    
+    func parseContext(_ contexts: [XRContext], run: XRRun, process: String) -> InstrumentRun {
+        return parseContext(contexts, run: run, filter: Filter.filterProcess, filterString: process)
+    }
+    
+    private func parseContext(_ contexts: [XRContext], run: XRRun, filter: Filter, filterString: String?) -> InstrumentRun {
         let activityRun = ActivityRun()
         activityRun.run = Int(run.runNumber())
         activityRun.runName = run.displayName()
@@ -29,14 +43,14 @@ class ActivityMonitorParser: ParserProtocol {
             
             guard let content = controller._currentResponse().content,
                 let array = content.rows(),
-                let filter: XRAnalysisCoreTableQuery = RuntimeHacks.getIvar(instance: array.source()!, name: "_filter"),
-                let formatter = filter.fullTextSearchSpec()!.formatter() else {
+                let analysisCoreTable: XRAnalysisCoreTableQuery = RuntimeHacks.getIvar(instance: array.source()!, name: "_filter"),
+                let formatter = analysisCoreTable.fullTextSearchSpec()!.formatter() else {
                     continue
             }
             
             array.access({ (accessor) in
                 accessor?.readRowsStarting(at: 0, dimension: 0, block: { (cursor) in
-                    self.readRow(cursor, formatter, activityRun)
+                    self.readRow(cursor, formatter, activityRun, filter, filterString)
                 })
             })
         }
@@ -44,7 +58,7 @@ class ActivityMonitorParser: ParserProtocol {
         return activityRun
     }
     
-    fileprivate func readRow(_ cursor: UnsafeMutableRawPointer?, _ formatter: XREngineeringTypeFormatter, _ activityRun: ActivityRun) {
+    fileprivate func readRow(_ cursor: UnsafeMutableRawPointer?, _ formatter: XREngineeringTypeFormatter, _ activityRun: ActivityRun, _ filter: Filter, _ filterString: String?) {
         while(XRAnalysisCoreReadCursorNext(cursor)) {
             var objectFound: Int32 = 0
             var object: XRAnalysisCoreValue? = nil
@@ -52,7 +66,7 @@ class ActivityMonitorParser: ParserProtocol {
             objectFound = XRAnalysisCoreReadCursorGetValue(cursor, 0, &object)
             let time = objectFound != 0 ? formatter.string(for: object) : ""
             objectFound = XRAnalysisCoreReadCursorGetValue(cursor, 2, &object)
-            let process = objectFound != 0 ? formatter.string(for: object) : ""
+            let process = objectFound != 0 ? formatter.string(for: object) ?? "" : ""
             objectFound = XRAnalysisCoreReadCursorGetValue(cursor, 6, &object)
             let cpu = objectFound != 0 ? formatter.string(for: object) : ""
             objectFound = XRAnalysisCoreReadCursorGetValue(cursor, 10, &object)
@@ -60,19 +74,27 @@ class ActivityMonitorParser: ParserProtocol {
             objectFound = XRAnalysisCoreReadCursorGetValue(cursor, 8, &object)
             let threads = objectFound != 0 ? formatter.string(for: object) : ""
             
+            let processMatch = regexHelper.matchString(process)
+            if filter == .filterProcess && processMatch.process != filterString {
+                continue
+            } else if filter == .filterPid && processMatch.pid != filterString {
+                continue
+            }
+            
             let row = ActivityRow(time: time ?? "",
-                               process: process ?? "",
+                               process: processMatch.process,
+                               pid: processMatch.pid,
                                cpu: cpu ?? "",
                                memory: memory ?? "",
                                threads: threads ?? "")
             
-            if let processActivity = activityRun.result[process!] {
+            if let processActivity = activityRun.result[process] {
                 processActivity.activity[time!] = row
             } else {
                 let processActivity = ProcessActivity()
                 processActivity.activity[time!] = row
                 
-                activityRun.result[process!] = processActivity
+                activityRun.result[process] = processActivity
             }
         }
     }
