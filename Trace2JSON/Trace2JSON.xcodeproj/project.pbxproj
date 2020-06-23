@@ -84,7 +84,7 @@
 		F497F2AA24A0662A0002CEFD /* Trace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trace.swift; sourceTree = "<group>"; };
 		F497F2AC24A073B00002CEFD /* ParserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserFactory.swift; sourceTree = "<group>"; };
 		F497F2AE24A079120002CEFD /* LeaksParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaksParser.swift; sourceTree = "<group>"; };
-		F4BA1852249DD7AF00D42258 /* Trace2JSON */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Trace2JSON; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4BA1852249DD7AF00D42258 /* trace2json */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = trace2json; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4BA1873249DDAE100D42258 /* Trace2JSON.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Trace2JSON.entitlements; sourceTree = "<group>"; };
 		F4BA187E249DDC0200D42258 /* InstrumentsAnalysisCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InstrumentsAnalysisCore.framework; path = ../../../../Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks/InstrumentsAnalysisCore.framework; sourceTree = "<group>"; };
 		F4BA1880249DDC0800D42258 /* InstrumentsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InstrumentsKit.framework; path = ../../../../Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Frameworks/InstrumentsKit.framework; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 		F4BA1853249DD7AF00D42258 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F4BA1852249DD7AF00D42258 /* Trace2JSON */,
+				F4BA1852249DD7AF00D42258 /* trace2json */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -264,9 +264,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F4BA1851249DD7AF00D42258 /* Trace2JSON */ = {
+		F4BA1851249DD7AF00D42258 /* trace2json */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F4BA1859249DD7AF00D42258 /* Build configuration list for PBXNativeTarget "Trace2JSON" */;
+			buildConfigurationList = F4BA1859249DD7AF00D42258 /* Build configuration list for PBXNativeTarget "trace2json" */;
 			buildPhases = (
 				F4BA184E249DD7AF00D42258 /* Sources */,
 				F4BA184F249DD7AF00D42258 /* Frameworks */,
@@ -276,13 +276,13 @@
 			);
 			dependencies = (
 			);
-			name = Trace2JSON;
+			name = trace2json;
 			packageProductDependencies = (
 				F497F2A724A062950002CEFD /* ArgumentParser */,
 				F4DB5AC524A185BF006AB436 /* Regex */,
 			);
 			productName = Trace2JSON;
-			productReference = F4BA1852249DD7AF00D42258 /* Trace2JSON */;
+			productReference = F4BA1852249DD7AF00D42258 /* trace2json */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -317,7 +317,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F4BA1851249DD7AF00D42258 /* Trace2JSON */,
+				F4BA1851249DD7AF00D42258 /* trace2json */,
 			);
 		};
 /* End PBXProject section */
@@ -539,7 +539,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F4BA1859249DD7AF00D42258 /* Build configuration list for PBXNativeTarget "Trace2JSON" */ = {
+		F4BA1859249DD7AF00D42258 /* Build configuration list for PBXNativeTarget "trace2json" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4BA185A249DD7AF00D42258 /* Debug */,

@@ -8,7 +8,7 @@
 
 #import "LeaksParserHelper.h"
 #import "LeaksHeaders.h"
-#import "Trace2JSON-Swift.h"
+#import "trace2json-Swift.h"
 
 @implementation LeaksParserHelper
 

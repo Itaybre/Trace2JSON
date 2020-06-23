@@ -13,7 +13,9 @@ enum OptionsError: Error {
     case tooManyFilters(String)
 }
 
-struct ParseTrace: ParsableCommand {
+struct Trace2JSON: ParsableCommand {
+    static var configuration = CommandConfiguration(commandName: "trace2json")
+    
     @Option(name: .long, help: "Process Name to filter when available.")
     var process: String?
     
@@ -63,4 +65,4 @@ struct ParseTrace: ParsableCommand {
     }
 }
 
-ParseTrace.main()
+Trace2JSON.main()
