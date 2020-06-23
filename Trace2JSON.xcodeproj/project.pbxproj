@@ -186,11 +186,11 @@
 				F439B50524A0E980009CEE64 /* SelectedProcess.swift */,
 				F439B50324A0E96E009CEE64 /* Instrument.swift */,
 				F439B50124A0E95A009CEE64 /* InstrumentRun.swift */,
+				F4DB5AC924A18A44006AB436 /* ProcessMatch.swift */,
 				F439B51724A10A04009CEE64 /* Leaks */,
 				F439B51824A10A0B009CEE64 /* Activity */,
 				F439B51924A10A1B009CEE64 /* CoreAnimation */,
 				F439B51C24A11BA2009CEE64 /* Connection */,
-				F4DB5AC924A18A44006AB436 /* ProcessMatch.swift */,
 				F4BC0DE024A28E1100BF6650 /* Allocations */,
 			);
 			path = Models;

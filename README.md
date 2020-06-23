@@ -23,6 +23,11 @@ OPTIONS:
 - MacOS 10.14+
 - Xcode installed at path `/Applications/Xcode.app`
 
+## TODO
+
+- Cleanup code
+- Add more instruments
+
 ## FAQ
 
 #### Supported Instruments
@@ -31,6 +36,7 @@ OPTIONS:
 - Network Connections
 - Leaks
 - Allocations
+- CPU Activity Impact
 
 ## Inspiration
 [TraceUtility](https://github.com/Qusic/TraceUtility)
