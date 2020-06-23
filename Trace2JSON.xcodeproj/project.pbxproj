@@ -39,6 +39,10 @@
 		F4BA1888249DDC1100D42258 /* InstrumentsPlugIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1884249DDC1100D42258 /* InstrumentsPlugIn.framework */; };
 		F4BA1889249DDC1100D42258 /* DVTInstrumentsUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BA1885249DDC1100D42258 /* DVTInstrumentsUtilities.framework */; };
 		F4BA189A249DE4C600D42258 /* LeaksParserHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA1899249DE4C600D42258 /* LeaksParserHelper.m */; };
+		F4BC0DBA24A2790B00BF6650 /* AllocationsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC0DB924A2790B00BF6650 /* AllocationsParser.swift */; };
+		F4BC0DBE24A2829300BF6650 /* AllocationsParserHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BC0DBD24A2829300BF6650 /* AllocationsParserHelper.m */; };
+		F4BC0DE224A28E2200BF6650 /* AllocationsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC0DE124A28E2200BF6650 /* AllocationsRow.swift */; };
+		F4BC0DE424A28E3D00BF6650 /* AllocationsRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC0DE324A28E3D00BF6650 /* AllocationsRun.swift */; };
 		F4DB5AC324A18120006AB436 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB5AC224A18120006AB436 /* Filter.swift */; };
 		F4DB5AC624A185BF006AB436 /* Regex in Frameworks */ = {isa = PBXBuildFile; productRef = F4DB5AC524A185BF006AB436 /* Regex */; };
 		F4DB5AC824A186AB006AB436 /* ProcessRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB5AC724A186AB006AB436 /* ProcessRegex.swift */; };
@@ -95,6 +99,12 @@
 		F4BA188D249DDF5F00D42258 /* InstrumentsPrivateHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstrumentsPrivateHeaders.h; sourceTree = "<group>"; };
 		F4BA1898249DE4C600D42258 /* LeaksParserHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeaksParserHelper.h; sourceTree = "<group>"; };
 		F4BA1899249DE4C600D42258 /* LeaksParserHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeaksParserHelper.m; sourceTree = "<group>"; };
+		F4BC0DB924A2790B00BF6650 /* AllocationsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllocationsParser.swift; sourceTree = "<group>"; };
+		F4BC0DBC24A2829300BF6650 /* AllocationsParserHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllocationsParserHelper.h; sourceTree = "<group>"; };
+		F4BC0DBD24A2829300BF6650 /* AllocationsParserHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllocationsParserHelper.m; sourceTree = "<group>"; };
+		F4BC0DBF24A282F000BF6650 /* AllocationsHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllocationsHeaders.h; sourceTree = "<group>"; };
+		F4BC0DE124A28E2200BF6650 /* AllocationsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllocationsRow.swift; sourceTree = "<group>"; };
+		F4BC0DE324A28E3D00BF6650 /* AllocationsRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllocationsRun.swift; sourceTree = "<group>"; };
 		F4DB5AC224A18120006AB436 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		F4DB5AC724A186AB006AB436 /* ProcessRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessRegex.swift; sourceTree = "<group>"; };
 		F4DB5AC924A18A44006AB436 /* ProcessMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessMatch.swift; sourceTree = "<group>"; };
@@ -181,6 +191,7 @@
 				F439B51924A10A1B009CEE64 /* CoreAnimation */,
 				F439B51C24A11BA2009CEE64 /* Connection */,
 				F4DB5AC924A18A44006AB436 /* ProcessMatch.swift */,
+				F4BC0DE024A28E1100BF6650 /* Allocations */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -257,8 +268,29 @@
 				F439B4FB24A0E8E1009CEE64 /* ActivityMonitorParser.swift */,
 				F439B51124A0FE15009CEE64 /* CoreAnimationParser.swift */,
 				F439B51A24A10B70009CEE64 /* ConnectionsParser.swift */,
+				F4BC0DBB24A281E300BF6650 /* AllocationsParser */,
 			);
 			path = Parsers;
+			sourceTree = "<group>";
+		};
+		F4BC0DBB24A281E300BF6650 /* AllocationsParser */ = {
+			isa = PBXGroup;
+			children = (
+				F4BC0DBF24A282F000BF6650 /* AllocationsHeaders.h */,
+				F4BC0DB924A2790B00BF6650 /* AllocationsParser.swift */,
+				F4BC0DBC24A2829300BF6650 /* AllocationsParserHelper.h */,
+				F4BC0DBD24A2829300BF6650 /* AllocationsParserHelper.m */,
+			);
+			path = AllocationsParser;
+			sourceTree = "<group>";
+		};
+		F4BC0DE024A28E1100BF6650 /* Allocations */ = {
+			isa = PBXGroup;
+			children = (
+				F4BC0DE324A28E3D00BF6650 /* AllocationsRun.swift */,
+				F4BC0DE124A28E2200BF6650 /* AllocationsRow.swift */,
+			);
+			path = Allocations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +362,7 @@
 				F439B51024A0FD00009CEE64 /* ActivityRun.swift in Sources */,
 				F439B4FE24A0E915009CEE64 /* LeakRow.swift in Sources */,
 				F439B51624A10993009CEE64 /* CoreAnimationRow.swift in Sources */,
+				F4BC0DBA24A2790B00BF6650 /* AllocationsParser.swift in Sources */,
 				F497F2AD24A073B00002CEFD /* ParserFactory.swift in Sources */,
 				F439B50E24A0FCEB009CEE64 /* ProcessActivity.swift in Sources */,
 				F497F2AB24A0662A0002CEFD /* Trace.swift in Sources */,
@@ -339,6 +372,7 @@
 				F4DB5ACA24A18A44006AB436 /* ProcessMatch.swift in Sources */,
 				F439B50624A0E980009CEE64 /* SelectedProcess.swift in Sources */,
 				F497F29F24A05E180002CEFD /* main.swift in Sources */,
+				F4BC0DE224A28E2200BF6650 /* AllocationsRow.swift in Sources */,
 				F439B51B24A10B70009CEE64 /* ConnectionsParser.swift in Sources */,
 				F439B4FC24A0E8E1009CEE64 /* ActivityMonitorParser.swift in Sources */,
 				F439B50A24A0FCC0009CEE64 /* RuntimeHacks.swift in Sources */,
@@ -350,9 +384,11 @@
 				F497F2AF24A079120002CEFD /* LeaksParser.swift in Sources */,
 				F439B50424A0E96E009CEE64 /* Instrument.swift in Sources */,
 				F439B50224A0E95A009CEE64 /* InstrumentRun.swift in Sources */,
+				F4BC0DBE24A2829300BF6650 /* AllocationsParserHelper.m in Sources */,
 				F439B51224A0FE15009CEE64 /* CoreAnimationParser.swift in Sources */,
 				F439B52024A11BC7009CEE64 /* ConnectionRow.swift in Sources */,
 				F4DB5AC324A18120006AB436 /* Filter.swift in Sources */,
+				F4BC0DE424A28E3D00BF6650 /* AllocationsRun.swift in Sources */,
 				F439B52224A13E58009CEE64 /* ParserProtocol.swift in Sources */,
 				F439B50824A0E993009CEE64 /* Device.swift in Sources */,
 			);

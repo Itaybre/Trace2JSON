@@ -13,7 +13,8 @@ class ParserFactory {
         "com.apple.xray.instrument-type.homeleaks" : LeaksParser(),
         "com.apple.xray.instrument-type.activity": ActivityMonitorParser(),
         "com.apple.dt.coreanimation-fps": CoreAnimationParser(),
-        "com.apple.dt.network-connections": ConnectionsParser()
+        "com.apple.dt.network-connections": ConnectionsParser(),
+        "com.apple.xray.instrument-type.oa": AllocationsParser()
     ]
     
     func parserForInstrument(instrument: String) -> ParserProtocol? {

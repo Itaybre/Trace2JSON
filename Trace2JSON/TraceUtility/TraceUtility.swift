@@ -48,7 +48,7 @@ class TraceUtility {
         return trace
     }
     
-    func processInstrument(_ instrument: XRInstrument) -> Instrument? {
+    private func processInstrument(_ instrument: XRInstrument) -> Instrument? {
         guard let runs = instrument.allRuns(),
             let instrumentId = instrument.type()?.uuid() else {
             return nil
@@ -67,7 +67,7 @@ class TraceUtility {
         return result
     }
     
-    func createContext(_ detailNode: XRAnalysisCoreDetailNode?, _ detailController: XRAnalysisCoreDetailViewController) -> XRContext? {
+    private func createContext(_ detailNode: XRAnalysisCoreDetailNode?, _ detailController: XRAnalysisCoreDetailViewController) -> XRContext? {
         guard let detailNode = detailNode else {
             return nil
         }
@@ -79,17 +79,17 @@ class TraceUtility {
                          parentContext: createContext(detailNode.parent, detailController))
     }
     
-    func parseContexts(_ contexts: [XRContext], run: XRRun, parser: ParserProtocol) -> InstrumentRun {
+    private func parseContexts(_ contexts: [XRContext], run: XRRun, parser: ParserProtocol, instrument: XRInstrument) -> InstrumentRun {
         if let process = process {
-            return parser.parseContext(contexts, run: run, process: process)
+            return parser.parse(contexts: contexts, run: run, instrument: instrument, process: process)
         } else if let pid = pid {
-            return parser.parseContext(contexts, run: run, pid: pid)
+            return parser.parse(contexts: contexts, run: run, instrument: instrument, pid: pid)
         } else {
-            return parser.parseContext(contexts, run: run)
+            return parser.parse(contexts: contexts, run: run, instrument: instrument)
         }
     }
 
-fileprivate func processRuns(_ runs: [XRRun], _ instrument: XRInstrument, _ parser: ParserProtocol, _ result: Instrument) {
+    private func processRuns(_ runs: [XRRun], _ instrument: XRInstrument, _ parser: ParserProtocol, _ result: Instrument) {
         for run in runs {
             instrument.setCurrentRun(run)
             
@@ -123,7 +123,7 @@ fileprivate func processRuns(_ runs: [XRRun], _ instrument: XRInstrument, _ pars
                 }
             }
             
-            result.runs.append(parseContexts(contexts, run: run, parser: parser))
+            result.runs.append(parseContexts(contexts, run: run, parser: parser, instrument: instrument))
             
             if let _ = instrument as? XRLegacyInstrument {}
             else {

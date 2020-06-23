@@ -11,15 +11,15 @@ import Foundation
 class ConnectionsParser: ParserProtocol {
     private let regexHelper = ProcessRegex()
     
-    func parseContext(_ contexts: [XRContext], run: XRRun) -> InstrumentRun {
+    func parse(contexts: [XRContext], run: XRRun, instrument: XRInstrument) -> InstrumentRun {
         return parseContext(contexts, run: run, filter: Filter.noFilter, filterString: nil)
     }
     
-    func parseContext(_ contexts: [XRContext], run: XRRun, pid: String) -> InstrumentRun {
+    func parse(contexts: [XRContext], run: XRRun, instrument: XRInstrument, pid: String) -> InstrumentRun {
         return parseContext(contexts, run: run, filter: Filter.filterPid, filterString: pid)
     }
     
-    func parseContext(_ contexts: [XRContext], run: XRRun, process: String) -> InstrumentRun {
+    func parse(contexts: [XRContext], run: XRRun, instrument: XRInstrument, process: String) -> InstrumentRun {
         return parseContext(contexts, run: run, filter: Filter.filterProcess, filterString: process)
     }
     

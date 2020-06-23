@@ -9,19 +9,19 @@
 import Foundation
 
 protocol ParserProtocol {
-    func parseContext(_ contexts: [XRContext], run: XRRun) -> InstrumentRun
+    func parse(contexts: [XRContext], run: XRRun, instrument: XRInstrument) -> InstrumentRun
     
-    func parseContext(_ contexts: [XRContext], run: XRRun, pid: String) -> InstrumentRun
+    func parse(contexts: [XRContext], run: XRRun, instrument: XRInstrument, pid: String) -> InstrumentRun
     
-    func parseContext(_ contexts: [XRContext], run: XRRun, process: String) -> InstrumentRun
+    func parse(contexts: [XRContext], run: XRRun, instrument: XRInstrument, process: String) -> InstrumentRun
 }
 
 extension ParserProtocol {
-    func parseContext(_ contexts: [XRContext], run: XRRun, pid: String) -> InstrumentRun {
-        return parseContext(contexts, run: run)
+    func parse(contexts: [XRContext], run: XRRun, instrument: XRInstrument, pid: String) -> InstrumentRun {
+        return parse(contexts: contexts, run: run, instrument: instrument)
     }
     
-    func parseContext(_ contexts: [XRContext], run: XRRun, process: String) -> InstrumentRun {
-        return parseContext(contexts, run: run)
+    func parse(contexts: [XRContext], run: XRRun, instrument: XRInstrument, process: String) -> InstrumentRun {
+        return parse(contexts: contexts, run: run, instrument: instrument)
     }
 }

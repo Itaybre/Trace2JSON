@@ -4,3 +4,4 @@
 
 #import "InstrumentsPrivateHeaders.h"
 #import "LeaksParserHelper.h"
+#import "AllocationsParserHelper.h"

@@ -9,7 +9,7 @@
 import Foundation
 
 class CoreAnimationParser: ParserProtocol {
-    func parseContext(_ contexts: [XRContext], run: XRRun) -> InstrumentRun {
+    func parse(contexts: [XRContext], run: XRRun, instrument: XRInstrument) -> InstrumentRun {
         let coreRun = CoreAnimationRun()
         coreRun.run = Int(run.runNumber())
         coreRun.runName = run.displayName()

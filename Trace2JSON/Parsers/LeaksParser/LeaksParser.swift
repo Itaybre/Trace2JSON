@@ -11,7 +11,7 @@ import Foundation
 class LeaksParser: ParserProtocol {
     private let helper = LeaksParserHelper()
     
-    func parseContext(_ contexts: [XRContext], run: XRRun) -> InstrumentRun {
+    func parse(contexts: [XRContext], run: XRRun, instrument: XRInstrument) -> InstrumentRun {
         let result = LeakRun()
         result.run = Int(run.runNumber())
         result.runName = run.displayName()
