@@ -30,6 +30,7 @@ OPTIONS:
 - Core Animation FPS
 - Network Connections
 - Leaks
+- Allocations
 
 ## Inspiration
 [TraceUtility](https://github.com/Qusic/TraceUtility)
